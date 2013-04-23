@@ -62,7 +62,39 @@ from .config import (
 
 
 
-## Import functions
+## Setup various function
+
+def setupVarious(context):
+    """Import step for configuration that is not handled in xml files.
+    """
+    # Only run step if a flag file is present
+    if context.readDataFile('ageliaco_schoolsite_various.txt') is None:
+        return
+    #logger = context.getLogger('ageliaco.schoolsite')
+    site = context.getSite()
+    #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
+    
+    print "No various settings added yet"
+
+
+## Import function
+
+def addBookingCenter(container, target_language):
+    # First, install the PloneBooking product if not yet !!!
+    
+    qi = getToolByName(container, 'portal_quickinstaller')
+    if not qi.isProductInstalled('PloneBooking'):
+        #qi.installProduct('PloneBooking', locked=0)    
+        qi.installProduct('PloneBooking')
+    
+    # Add the Booking Center
+    createATSubcontainer(container, 
+                         'BookingCenter', 
+                         'reservation-des-salles', 
+                         u'Reservation des salles', 
+                         u'reservation-des-salles-title', 
+                         target_language)
+
 
 def importContent(context):
     """Import base content into the Plone site."""
@@ -101,13 +133,8 @@ def importContent(context):
                              SCHOOL['ADMIN_SUBSECTIONS'], 
                              'Folder', 
                              target_language)
-    # The Booking Center  --> Probably need to externalise to another package cause specific!!!
-#     createATSubcontainer(adminSection, 
-#                       'BookingCenter', 
-#                       'reservation-des-salles', 
-#                       u'Reservation des salles', 
-#                       u'reservation-des-salles-title', 
-#                       target_language)
+    # Add the Booking Center
+    addBookingCenter(adminSection, target_language)
     
     ## 3nd level...
     disciplinesSection = portal['espace-pedagogique']['disciplines']

@@ -23,13 +23,19 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:importStep
+        name="schoolsite-various"
+        title="Setup various for ageliaco.schoolsite"
+        description=""
+        handler=".setuphandlers.setupVarious" 
+        />
+
     <genericsetup:registerProfile
-        name="content"
+        name="schoolsite-content"
         title="ageliaco.schoolsite website content"
         directory="profiles/content"
         description="Website content profile"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
+        provides="Products.GenericSetup.interfaces.EXTENSION" 
         />
-
 
 </configure>
