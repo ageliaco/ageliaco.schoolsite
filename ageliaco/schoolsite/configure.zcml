@@ -24,7 +24,7 @@
         />
 
     <genericsetup:registerProfile
-        name="website"
+        name="content"
         title="ageliaco.schoolsite website content"
         directory="profiles/content"
         description="Website content profile"

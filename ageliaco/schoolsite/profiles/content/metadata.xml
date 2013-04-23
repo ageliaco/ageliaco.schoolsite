@@ -1,0 +1,6 @@
+<metadata>
+ <version>1.0a1</version>
+ <dependencies>
+  <dependency>profile-ageliaco.schoolsite:default</dependency>
+ </dependencies>
+</metadata>

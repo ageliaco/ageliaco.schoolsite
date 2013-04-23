@@ -28,6 +28,7 @@ setup(name='ageliaco.schoolsite',
           #'plone.app.dexterity[grok,relations]',
           #'plone.app.contenttypes',
 
+          'collective.makesitestructure',
           'Products.PloneBooking',
       ],
       extras_require={
