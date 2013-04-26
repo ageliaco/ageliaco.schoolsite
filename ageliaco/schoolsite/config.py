@@ -38,3 +38,19 @@ CONTENT = {
 
 }
 
+
+
+LOCAL_GROUPS = [('DirectionGroup', 'direction'),
+
+                ('Doyen1Group', 'doyen1'),
+                ('Doyen2Group', 'doyen2'),
+                ('Doyen3Group', 'doyen3'),
+                ('Doyen4Group', 'doyen4'),
+                ('Doyen5Group', 'doyen5'),
+                
+                ('EcranGroup', 'ecran'),
+                ('InfoGroup', 'info'),
+                ('LiberationsGroup', 'liberations'),
+                ('SecretariatGroup', 'secretariat'),
+              ]
+          

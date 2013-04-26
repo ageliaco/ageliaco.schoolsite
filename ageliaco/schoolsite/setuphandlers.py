@@ -47,7 +47,10 @@ from collective.makesitestructure.utils import (
 
 from .config import (
       CONTENT,
+      LOCAL_GROUPS,
 )
+
+from . import messageFactory as _
 
 
 # class HiddenProfiles(object):
@@ -61,6 +64,58 @@ from .config import (
 #         return [u'plone.app.contenttypes:uninstall']
 
 
+## Reused functions for the "setup various" part
+
+def setupGroups(site):
+    """
+    Create our specific set of groups.
+    """
+    uf = getToolByName(site, 'acl_users')
+    gtool = getToolByName(site, 'portal_groups')
+    regtool = getToolByName(site, 'portal_registration')
+    
+    for groupid, memberid in LOCAL_GROUPS: 
+        if not uf.searchGroups(id=groupid):
+            gtool.addGroup(groupid, title=groupid,
+                       roles=[])
+                       
+        # Setup a test user as a member of each group
+        member_properties = {
+                 'username': memberid,
+                 'fullname': memberid,
+                 'email': memberid + '@schoolsite.com',
+               }
+        try:
+            # addMember() returns MemberData object
+            member = regtool.addMember(memberid, memberid, properties=member_properties)
+            print "Added member: " + member.getUserName()
+            gtool.addPrincipalToGroup(memberid, groupid)
+        except ValueError, e:
+            # Give user visual feedback what went wrong
+            #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
+            print u"Could not create the user or add it to the group:" + unicode(e), "error"
+
+def setupInitialSiteAdmin(site):
+    """
+    Initial Site Admin.
+    """
+    uf = getToolByName(site, 'acl_users')
+    gtool = getToolByName(site, 'portal_groups')
+    regtool = getToolByName(site, 'portal_registration')
+
+    properties = {
+                 'username': 'siteadmin',
+                 'fullname': u"Site Admin",
+                 'email': 'siteadmin@schoolsite.com',
+               }
+    try:
+        member = regtool.addMember('siteadmin', 'admin', properties=properties)
+        print "Added siteadmin"
+        gtool.addPrincipalToGroup('siteadmin', 'Site Administrators')
+    except ValueError, e:
+        # Give user visual feedback what went wrong
+        #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
+        print u"Could not create the siteadmin user or add it to the group:" + unicode(e), "error"
 
 ## Setup various function
 
@@ -70,14 +125,15 @@ def setupVarious(context):
     # Only run step if a flag file is present
     if context.readDataFile('ageliaco.schoolsite_various.txt') is None:
         return
-    #logger = context.getLogger('ageliaco.schoolsite')
+    logger = context.getLogger('ageliaco.schoolsite')
     site = context.getSite()
     #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
     
-    print "No various settings added yet"
+    setupGroups(site)
+    setupInitialSiteAdmin(site)
 
 
-## Import function
+## Reused functions for the content import
 
 def addBookingCenter(container, target_language):
     # First, install the PloneBooking product if not yet !!!
@@ -95,6 +151,8 @@ def addBookingCenter(container, target_language):
                          u'reservation-des-salles-title', 
                          target_language)
 
+
+## Import function
 
 def importContent(context):
     """Import base content into the Plone site."""
