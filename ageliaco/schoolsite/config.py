@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-SCHOOL = {
+CONTENT = {
   'MAIN_SECTIONS': [
          ('presentation', u'Presentation', u'presentation-title',),
          ('espace-pedagogique', u'Espace pedagogique', u'espace-pedagogique-title',),

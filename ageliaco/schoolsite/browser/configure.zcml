@@ -1,0 +1,48 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="plone.app.contenttypes">
+
+  <!--
+  
+  <browser:resource
+      name="collection.css"
+      file="stylesheets/collection.css" />
+
+  <browser:resourceDirectory
+      name="plone.app.contenttypes.images"
+      directory="images" />
+
+  -->
+
+  <!--
+  <browser:page
+    name="contenttype_utils"
+    for="*"
+    permission="zope2.View"
+    class=".utils.Utils"
+    allowed_interface="plone.app.contenttypes.browser.utils.IUtils"
+    />
+  -->
+
+  <!--
+  <browser:page
+    name="local_groups_add"
+    for="plone.app.contenttypes.interfaces.ILink"
+    layer="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+    class=".local_groups_add_view.LocalGroupsAddView"
+    permission="zope2.ManagePortal"
+    />
+  -->
+  
+  <browser:page
+    name="local_groups_add"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".local_groups_add_view.LocalGroupsAddView"
+    permission="cmf.ManagePortal"
+    />
+
+
+
+</configure>

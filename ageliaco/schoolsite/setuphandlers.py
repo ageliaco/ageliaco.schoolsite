@@ -46,7 +46,7 @@ from collective.makesitestructure.utils import (
 )
 
 from .config import (
-      SCHOOL,
+      CONTENT,
 )
 
 
@@ -68,7 +68,7 @@ def setupVarious(context):
     """Import step for configuration that is not handled in xml files.
     """
     # Only run step if a flag file is present
-    if context.readDataFile('ageliaco_schoolsite_various.txt') is None:
+    if context.readDataFile('ageliaco.schoolsite_various.txt') is None:
         return
     #logger = context.getLogger('ageliaco.schoolsite')
     site = context.getSite()
@@ -98,7 +98,7 @@ def addBookingCenter(container, target_language):
 
 def importContent(context):
     """Import base content into the Plone site."""
-    if context.readDataFile('ageliaco_schoolsite.txt') is None:
+    if context.readDataFile('ageliaco.schoolsite_content.txt') is None:
         return
     portal = context.getSite()
     target_language, is_combined_language, locale = _get_locales_info(portal)
@@ -111,26 +111,26 @@ def importContent(context):
     
     ## 1st level - Other sections
     batchCreateSubcontainers(portal,
-                             SCHOOL['MAIN_SECTIONS'], 
+                             CONTENT['MAIN_SECTIONS'], 
                              'Folder', 
                              target_language)     
 
     ## 2nd level
     aboutSection = portal['presentation']
     batchCreateSubcontainers(aboutSection,
-                             SCHOOL['ABOUT_SUBSECTIONS'], 
+                             CONTENT['ABOUT_SUBSECTIONS'], 
                              'Folder', 
                              target_language)     
                              
     pedagoSection = portal['espace-pedagogique']
     batchCreateSubcontainers(pedagoSection,
-                             SCHOOL['PEDAGO_SUBSECTIONS'], 
+                             CONTENT['PEDAGO_SUBSECTIONS'], 
                              'Folder', 
                              target_language)     
 
     adminSection = portal['espace-administratif']
     batchCreateSubcontainers(adminSection,
-                             SCHOOL['ADMIN_SUBSECTIONS'], 
+                             CONTENT['ADMIN_SUBSECTIONS'], 
                              'Folder', 
                              target_language)
     # Add the Booking Center
@@ -139,7 +139,7 @@ def importContent(context):
     ## 3nd level...
     disciplinesSection = portal['espace-pedagogique']['disciplines']
     batchCreateSubcontainers(disciplinesSection,
-                             SCHOOL['DISCIPLINES'], 
+                             CONTENT['DISCIPLINES'], 
                              'Folder', 
                              target_language)
 
