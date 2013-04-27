@@ -45,12 +45,12 @@ from collective.makesitestructure.utils import (
       createCommonSectionsAndContents,
 )
 
-from .config import (
+from ageliaco.schoolsite.config import (
       CONTENT,
       LOCAL_GROUPS,
 )
 
-from . import messageFactory as _
+from ageliaco.schoolsite import _
 
 
 # class HiddenProfiles(object):
@@ -191,30 +191,44 @@ def importContent(context):
                              CONTENT['ADMIN_SUBSECTIONS'], 
                              'Folder', 
                              target_language)
-    # Add the Booking Center
+                             
+    # Add the Booking Center to the Admin section
     addBookingCenter(adminSection, target_language)
     
+    # Add the Disciplines section to the Pedago section
+    createDXSubcontainer(pedagoSection, 
+                         'DisciplineContainer', 
+                         'disciplines', 
+                         u'Disciplines', 
+                         u'disciplines-title', 
+                         target_language)
+    
     ## 3nd level...
-    disciplinesSection = portal['espace-pedagogique']['disciplines']
-    batchCreateSubcontainers(disciplinesSection,
-                             CONTENT['DISCIPLINES'], 
-                             'Folder', 
-                             target_language)
-
-    # 2 or 3 additional subfolders for documents/files...
-    createDXSubcontainer(disciplinesSection, 
-                         'Folder', 
-                         'documents-pv', 
-                         u'Documents - PVs', 
-                         u'documents-pv-title', 
-                         target_language)
-    createDXSubcontainer(disciplinesSection, 
-                         'Folder', 
-                         'documents-decisions', 
-                         u'''Documents - Décisions''', 
-                         u'documents-decisions-title', 
-                         target_language)
+#     disciplinesSection = portal['espace-pedagogique']['disciplines']
+#     batchCreateSubcontainers(disciplinesSection,
+#                              CONTENT['DISCIPLINES'], 
+#                              'Folder', 
+#                              target_language)
+# 
+#     # 2 or 3 additional subfolders for documents/files...
+#     createDXSubcontainer(disciplinesSection, 
+#                          'Folder', 
+#                          'documents-pv', 
+#                          u'Documents - PVs', 
+#                          u'documents-pv-title', 
+#                          target_language)
+#     createDXSubcontainer(disciplinesSection, 
+#                          'Folder', 
+#                          'documents-decisions', 
+#                          u'''Documents - Décisions''', 
+#                          u'documents-decisions-title', 
+#                          target_language)
     # ...
 
 
-
+    ## Hide some top-level folders from navigation
+    #HIDDEN_FOLDERS = ['news', 'events', 'images',]
+    #for folderid in HIDDEN_FOLDERS:
+    #    folder = portal[folderid]
+    #    folder.exclude_from_nav = True
+    

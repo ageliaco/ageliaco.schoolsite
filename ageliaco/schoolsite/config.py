@@ -17,23 +17,18 @@ CONTENT = {
   ],
   'PEDAGO_SUBSECTIONS': [
          ('cours', u'''Cours''', u'cours-title',),
-         ('disciplines', u'''Disciplines''', u'disciplines-title',),
+         #('disciplines', u'''Disciplines''', u'disciplines-title',),
   ],
   'ADMIN_SUBSECTIONS': [
          ('gestion-des-liberations', u'''Gestion des libérations''', u'gestion-des-liberations-title',),
          ('test', u'''Test''', u'test-title',),
   ],
 
-  'DISCIPLINES': [
-         ('anglais', u'''Anglais''', u'xxx-title',),
-         ('allemand', u'''Allemand''', u'xxx-title',),
-         ('mathematiques', u'''Mathématiques''', u'xxx-title',),
-         #('anglais', u'''anglais''', u'xxx-title',),
-         #('anglais', u'''anglais''', u'xxx-title',),
-         #('anglais', u'''anglais''', u'xxx-title',),
-         #('anglais', u'''anglais''', u'xxx-title',),
-         
-  ],
+#   'DISCIPLINES': [
+#          ('anglais', u'''Anglais''', u'xxx-title',),
+#          ('allemand', u'''Allemand''', u'xxx-title',),
+#          ('mathematiques', u'''Mathématiques''', u'xxx-title',),
+#  ],
 
 
 }
