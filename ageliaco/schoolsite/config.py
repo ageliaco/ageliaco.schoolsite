@@ -9,14 +9,14 @@ CONTENT = {
         # ('presentation', u'Presentation', u'presentation-title', 'Folder'),
   ],
   
-  'ABOUT_SUBSECTIONS': [
+  'ABOUT_CHILDREN': [
          ('ecole', u'''L'école''', u'ecole-title', 'Folder'),
          ('etudes', u'''Les études''', u'etudes-title', 'Folder'),
          ('personnes', u'''Les personnes''', u'personnes-title', 'Folder'),
          ('contact', u'''Contact et accès''', u'contact-title', 'Folder'),         
   ],
   
-  'VIE_ECOLE_SUBSECTIONS': [
+  'VIE_ECOLE_CHILDREN': [
          ('associations', u'''Associations''', u'associations-title', 'Folder'),
          ('groupes', u'''Groupes''', u'groupes-title', 'Folder'),
          ('cafeteria', u'''Caféteria''', u'cafeteria-title', 'Folder'),
@@ -26,7 +26,7 @@ CONTENT = {
          ('voyages-sorties', u'''Voyages - Sorties''', u'voyages-sorties-title', 'Folder'),
   ],
   
-  'PEDAGOGIQUE_SUBSECTIONS': [
+  'PEDAGOGIQUE_CHILDREN': [
          ('cours', u'''Cours''', u'cours-title', 'Folder'),
          ('disciplines', u'''Disciplines''', u'disciplines-title', 'DisciplineContainer'),
          ('plan-etudes-programmes', u'''Plan d'études et programmes''', u'plan-etudes-programmes-title', 'Folder'),
@@ -42,7 +42,7 @@ CONTENT = {
 
   ],
   
-  'ADMINISTRATIF_SUBSECTIONS': [  # NON EXHAUSTIVE... COMPLETE LATER...
+  'ADMINISTRATIF_CHILDREN': [  # NON EXHAUSTIVE... COMPLETE LATER...
          ('memento-eleves', u'''memento-eleves''', u'memento-eleves-title', 'Folder'),
          ('memento-enseignants', u'''memento-enseignants''', u'memento-enseignants-title', 'Folder'),
          ('autres-calendriers', u'''autres-calendriers''', u'autres-calendriers-title', 'Folder'),
@@ -51,14 +51,15 @@ CONTENT = {
          
   ],
 
+  # --- 3rd level ---
+  
+  'DISCIPLINES_CHILDREN': [
+         ('anglais', u'''Anglais''', u'anglais-title', 'Discipline'),
+         ('allemand', u'''Allemand''', u'allemand-title', 'Discipline'),
+         ('mathematiques', u'''Mathematiques''', u'mathematiques-title', 'Discipline'),
 
-## TODO : Implement 3rd level...
-#   'DISCIPLINES': [
-#          ('anglais', u'''Anglais''', u'xxx-title',),
-#          ('allemand', u'''Allemand''', u'xxx-title',),
-#          ('mathematiques', u'''Mathématiques''', u'xxx-title',),
-#  ],
-
+         
+  ],
 
 }
 

@@ -175,38 +175,29 @@ def importContent(context):
                              target_language)     
 
     ## 2nd level
-    for folder_id, folder_contents_config_key in [('presentation','ABOUT_SUBSECTIONS'),
-                                                  ('vie-ecole','VIE_ECOLE_SUBSECTIONS'),
-                                                  ('espace-pedagogique','PEDAGOGIQUE_SUBSECTIONS'),
-                                                  ('espace-administratif','ADMINISTRATIF_SUBSECTIONS'),
+    for folder_id, folder_contents_key in [
+                                            ('presentation','ABOUT_CHILDREN'),
+                                            ('vie-ecole','VIE_ECOLE_CHILDREN'),
+                                            ('espace-pedagogique','PEDAGOGIQUE_CHILDREN'),
+                                            ('espace-administratif','ADMINISTRATIF_CHILDREN'),
                                          ]:
         folder = portal[folder_id]
         batchCreateSubcontainers(folder,
-                                 CONTENT[folder_contents_config_key], 
+                                 CONTENT[folder_contents_key], 
                                  target_language)     
                              
     # Special case (for now) - Add the Booking Center to the 'espace-administratif' section
     addBookingCenter(portal['espace-administratif'], target_language)
         
     ## 3nd level...
-#     disciplinesSection = portal['espace-pedagogique']['disciplines']
-#     batchCreateSubcontainers(disciplinesSection,
-#                              CONTENT['DISCIPLINES'], 
-#                              target_language)
-# 
-#     # 2 or 3 additional subfolders for documents/files...
-#     createDXSubcontainer(disciplinesSection, 
-#                          'Folder', 
-#                          'documents-pv', 
-#                          u'Documents - PVs', 
-#                          u'documents-pv-title', 
-#                          target_language)
-#     createDXSubcontainer(disciplinesSection, 
-#                          'Folder', 
-#                          'documents-decisions', 
-#                          u'''Documents - Décisions''', 
-#                          u'documents-decisions-title', 
-#                          target_language)
+    for folder_id, subfolder_id, subfolder_contents_key in [
+                                                  ('espace-pedagogique','disciplines','DISCIPLINES_CHILDREN'),
+                                                  
+                                                 ]:
+        subfolder = portal[folder_id][subfolder_id]
+        batchCreateSubcontainers(subfolder,
+                                 CONTENT[subfolder_contents_key], 
+                                 target_language)     
 
 
     # make _p_jar on content, before proceeding to various changes on the content
