@@ -172,44 +172,26 @@ def importContent(context):
     ## 1st level - Other sections
     batchCreateSubcontainers(portal,
                              CONTENT['MAIN_SECTIONS'], 
-                             'Folder', 
                              target_language)     
 
     ## 2nd level
-    aboutSection = portal['presentation']
-    batchCreateSubcontainers(aboutSection,
-                             CONTENT['ABOUT_SUBSECTIONS'], 
-                             'Folder', 
-                             target_language)     
+    for folder_id, folder_contents_config_key in [('presentation','ABOUT_SUBSECTIONS'),
+                                                  ('vie-ecole','VIE_ECOLE_SUBSECTIONS'),
+                                                  ('espace-pedagogique','PEDAGOGIQUE_SUBSECTIONS'),
+                                                  ('espace-administratif','ADMINISTRATIF_SUBSECTIONS'),
+                                         ]:
+        folder = portal[folder_id]
+        batchCreateSubcontainers(folder,
+                                 CONTENT[folder_contents_config_key], 
+                                 target_language)     
                              
-    pedagoSection = portal['espace-pedagogique']
-    batchCreateSubcontainers(pedagoSection,
-                             CONTENT['PEDAGO_SUBSECTIONS'], 
-                             'Folder', 
-                             target_language)     
-
-    adminSection = portal['espace-administratif']
-    batchCreateSubcontainers(adminSection,
-                             CONTENT['ADMIN_SUBSECTIONS'], 
-                             'Folder', 
-                             target_language)
-                             
-    # Add the Booking Center to the Admin section
-    addBookingCenter(adminSection, target_language)
-    
-    # Add the Disciplines section to the Pedago section
-    createDXSubcontainer(pedagoSection, 
-                         'DisciplineContainer', 
-                         'disciplines', 
-                         u'Disciplines', 
-                         u'disciplines-title', 
-                         target_language)
-    
+    # Special case (for now) - Add the Booking Center to the 'espace-administratif' section
+    addBookingCenter(portal['espace-administratif'], target_language)
+        
     ## 3nd level...
 #     disciplinesSection = portal['espace-pedagogique']['disciplines']
 #     batchCreateSubcontainers(disciplinesSection,
 #                              CONTENT['DISCIPLINES'], 
-#                              'Folder', 
 #                              target_language)
 # 
 #     # 2 or 3 additional subfolders for documents/files...
