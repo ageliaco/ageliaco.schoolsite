@@ -60,5 +60,6 @@ class LocalGroupsAddView(BrowserView):
 #         else:
 #             return self.template()
 
+
         return self.template()
         

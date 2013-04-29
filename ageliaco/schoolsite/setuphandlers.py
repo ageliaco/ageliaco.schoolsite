@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import transaction
+
 # import logging
 # 
 # from zope.component import (
@@ -223,12 +225,15 @@ def importContent(context):
 #                          u'''Documents - Décisions''', 
 #                          u'documents-decisions-title', 
 #                          target_language)
-    # ...
 
 
-    ## Hide some top-level folders from navigation
-    #HIDDEN_FOLDERS = ['news', 'events', 'images',]
-    #for folderid in HIDDEN_FOLDERS:
-    #    folder = portal[folderid]
-    #    folder.exclude_from_nav = True
+    # make _p_jar on content, before proceeding to various changes on the content
+    transaction.savepoint(optimistic=True)
+    
+    # Hide some top-level folders from navigation
+    HIDDEN_FOLDERS = ['news', 'events', 'images',]
+    for folderid in HIDDEN_FOLDERS:
+        folder = portal[folderid]
+        folder.exclude_from_nav = True
+        folder.reindexObject()
     
