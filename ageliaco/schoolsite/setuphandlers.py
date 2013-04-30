@@ -130,28 +130,16 @@ def setupVarious(context):
     logger = context.getLogger('ageliaco.schoolsite')
     site = context.getSite()
     #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
-    
-    setupGroups(site)
-    setupInitialSiteAdmin(site)
 
-
-## Reused functions for the content import
-
-def addBookingCenter(container, target_language):
-    # First, install the PloneBooking product if not yet !!!
-    
-    qi = getToolByName(container, 'portal_quickinstaller')
+    # Install the PloneBooking dependency product here (not easy other way for now...)
+    qi = getToolByName(site, 'portal_quickinstaller')
     if not qi.isProductInstalled('PloneBooking'):
         #qi.installProduct('PloneBooking', locked=0)    
         qi.installProduct('PloneBooking')
     
-    # Add the Booking Center
-    createATSubcontainer(container, 
-                         'BookingCenter', 
-                         'reservation-des-salles', 
-                         u'Reservation des salles', 
-                         u'reservation-des-salles-title', 
-                         target_language)
+    # Setup groups + users.
+    setupGroups(site)
+    setupInitialSiteAdmin(site)
 
 
 ## Import function
@@ -186,9 +174,6 @@ def importContent(context):
                                  CONTENT[folder_contents_key], 
                                  target_language)     
                              
-    # Special case (for now) - Add the Booking Center to the 'espace-administratif' section
-    addBookingCenter(portal['espace-administratif'], target_language)
-        
     ## 3nd level...
     for folder_id, subfolder_id, subfolder_contents_key in [
                                                   ('espace-pedagogique','disciplines','DISCIPLINES_CHILDREN'),

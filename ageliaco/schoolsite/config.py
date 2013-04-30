@@ -46,7 +46,18 @@ CONTENT = {
          ('memento-eleves', u'''memento-eleves''', u'memento-eleves-title', 'Folder'),
          ('memento-enseignants', u'''memento-enseignants''', u'memento-enseignants-title', 'Folder'),
          ('autres-calendriers', u'''autres-calendriers''', u'autres-calendriers-title', 'Folder'),
-       # ...
+
+         ('inscriptions-transferts', u'''inscriptions-transferts''', u'inscriptions-transferts-title', 'Folder'),
+         ('formulaires', u'''formulaires''', u'formulaires-title', 'Folder'),
+         ('listes-horaires-coordonnees', u'''listes-horaires-coordonnees''', u'listes-horaires-coordonnees-title', 'Folder'),
+         ('conference-presidents-de-groupe', u'''conference-presidents-de-groupe''', u'conference-presidents-de-groupe-title', 'Folder'),
+         ('reglements', u'''reglements''', u'reglements-title', 'Folder'),
+         
+         ('infos-officielles--directives', u'''infos-officielles--directives''', u'infos-officielles--directives-title', 'Folder'),
+         ('outils-informatiques-administratifs-pour-enseignants', u'''outils-informatiques-administratifs-pour-enseignants''', u'outils-informatiques-administratifs-pour-enseignants-title', 'Folder'),
+         ('bureaux-de-gestion--bureaux-horaires', u'''espace-bureaux-de-gestion--bureaux-horaires''', u'espace-bureaux-de-gestion--bureaux-horaires-title', 'Folder'),
+
+         ('gestion-des-reservations', u'''Gestion des réservations''', u'gestion-des-reservations-title', 'BookingCenter'),
          ('gestion-des-liberations', u'''Gestion des libérations''', u'gestion-des-liberations-title', 'Folder'),
          
   ],
