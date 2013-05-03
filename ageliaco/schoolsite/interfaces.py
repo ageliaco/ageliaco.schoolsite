@@ -16,6 +16,13 @@ class IAgeliacoSchoolSiteLayer(Interface):
     """
 
 
+# Interfaces for the objects we use to build the About section
+class ISchoolGeneralInfo(Interface):
+    """
+    """
+
+
+# Interfaces for Disciplines
 class IDiscipline(Interface):
     """
     """

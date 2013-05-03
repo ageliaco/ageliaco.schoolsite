@@ -10,10 +10,9 @@ CONTENT = {
   ],
   
   'ABOUT_CHILDREN': [
-         ('ecole', u'''L'école''', u'ecole-title', 'Folder'),
+         ('ecole', u'''L'école''', u'ecole-title', 'SchoolGeneralInfo'),
          ('etudes', u'''Les études''', u'etudes-title', 'Folder'),
          ('personnes', u'''Les personnes''', u'personnes-title', 'Folder'),
-         ('contact', u'''Contact et accès''', u'contact-title', 'Folder'),         
   ],
   
   'VIE_ECOLE_CHILDREN': [
@@ -63,6 +62,17 @@ CONTENT = {
   ],
 
   # --- 3rd level ---
+
+  'PRESENTATION_ETUDES_CHILDREN': [
+         ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document'),
+
+  ],
+  
+  'PRESENTATION_PERSONNES_CHILDREN': [
+         ('direction', u'''Direction''', u'direction-title', 'Document'),
+         ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document'),
+
+  ],
   
   'DISCIPLINES_CHILDREN': [
          ('anglais', u'''Anglais''', u'anglais-title', 'Discipline'),

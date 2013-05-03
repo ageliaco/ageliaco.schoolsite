@@ -162,6 +162,9 @@ def importContent(context):
                              CONTENT['MAIN_SECTIONS'], 
                              target_language)     
 
+    # make _p_jar on content, before next batch of objects creation
+    transaction.savepoint(optimistic=True)
+
     ## 2nd level
     for folder_id, folder_contents_key in [
                                             ('presentation','ABOUT_CHILDREN'),
@@ -173,10 +176,16 @@ def importContent(context):
         batchCreateSubcontainers(folder,
                                  CONTENT[folder_contents_key], 
                                  target_language)     
+
+    # make _p_jar on content, before next batch of objects creation
+    transaction.savepoint(optimistic=True)
                              
     ## 3nd level...
     for folder_id, subfolder_id, subfolder_contents_key in [
-                                                  ('espace-pedagogique','disciplines','DISCIPLINES_CHILDREN'),
+                                               ('presentation','etudes','PRESENTATION_ETUDES_CHILDREN'),
+                                               ('presentation','personnes','PRESENTATION_PERSONNES_CHILDREN'),
+                                            
+                                               ('espace-pedagogique','disciplines','DISCIPLINES_CHILDREN'),
                                                   
                                                  ]:
         subfolder = portal[folder_id][subfolder_id]
