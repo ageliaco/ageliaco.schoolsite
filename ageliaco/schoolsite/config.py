@@ -76,12 +76,15 @@ CONTENT = {
 
   'PRESENTATION_ETUDES_CHILDREN': [
          ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document', u'''Remplacez par votre texte...'''),
-
+         # TODO : Cabler les 2 liens...
   ],
   
   'PRESENTATION_PERSONNES_CHILDREN': [
          ('direction', u'''Direction''', u'direction-title', 'Document', u'''Remplacez par votre texte...'''),
          ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('enseignants', u'''Enseignants''', u'enseignants-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('personnel-administratif-et-technique', u'''Personnel administratif et technique''', u'personnel-administratif-et-technique-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('eleves', u'''Elèves''', u'eleves-title', 'Document', u'''Remplacez par votre texte...'''),
 
   ],
   
