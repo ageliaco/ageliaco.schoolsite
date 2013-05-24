@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from .interfaces import (
-    ISchoolGeneralInfo,
+#    ISchoolGeneralInfo,
     
     IDiscipline,
     IDisciplineContainer,
@@ -17,8 +17,8 @@ from zope.interface import implements
 
 
 
-class SchoolGeneralInfo(Container):
-    implements(ISchoolGeneralInfo)
+#class SchoolGeneralInfo(Container):
+#    implements(ISchoolGeneralInfo)
 
 
 

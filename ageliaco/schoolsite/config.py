@@ -2,7 +2,7 @@
 
 CONTENT = {
   'MAIN_SECTIONS': [
-         ('presentation', u'Presentation', u'presentation-title', 'Folder'),  # About
+         ('presentation', u'Présentation', u'presentation-title', 'Folder'),  # About
          ('vie-ecole', u'''Vie de l'école''', u'vie-ecole-title', 'Folder'),
          ('espace-pedagogique', u'Espace pedagogique', u'espace-pedagogique-title', 'Folder'),
          ('espace-administratif', u'Espace administratif', u'espace-administratif-title', 'Folder'),
@@ -10,7 +10,7 @@ CONTENT = {
   ],
   
   'ABOUT_CHILDREN': [
-         ('ecole', u'''L'école''', u'ecole-title', 'SchoolGeneralInfo'),
+         ('ecole', u'''L'école''', u'ecole-title', 'Folder'),
          ('etudes', u'''Les études''', u'etudes-title', 'Folder'),
          ('personnes', u'''Les personnes''', u'personnes-title', 'Folder'),
   ],
@@ -63,14 +63,25 @@ CONTENT = {
 
   # --- 3rd level ---
 
+  'PRESENTATION_ECOLE_CHILDREN': [
+         ('adresse', u'''Adresse''', u'adresse-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('contact', u'''Contact''', u'contact-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('acces', u'''Accès''', u'acces-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('horaires', u'''Horaires''', u'horaires-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('utilisation-locaux', u'''Utilisation des locaux''', u'utilisation-locaux-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('circulation-et-parking', u'''Circulation et parking''', u'circulation-et-parking-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('securite', u'''Sécurité''', u'securite-title', 'Document', u'''Remplacez par votre texte...'''),
+
+  ],
+
   'PRESENTATION_ETUDES_CHILDREN': [
-         ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document'),
+         ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document', u'''Remplacez par votre texte...'''),
 
   ],
   
   'PRESENTATION_PERSONNES_CHILDREN': [
-         ('direction', u'''Direction''', u'direction-title', 'Document'),
-         ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document'),
+         ('direction', u'''Direction''', u'direction-title', 'Document', u'''Remplacez par votre texte...'''),
+         ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document', u'''Remplacez par votre texte...'''),
 
   ],
   

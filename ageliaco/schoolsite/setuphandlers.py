@@ -182,6 +182,7 @@ def importContent(context):
                              
     ## 3nd level...
     for folder_id, subfolder_id, subfolder_contents_key in [
+                                               ('presentation','ecole','PRESENTATION_ECOLE_CHILDREN'),
                                                ('presentation','etudes','PRESENTATION_ETUDES_CHILDREN'),
                                                ('presentation','personnes','PRESENTATION_PERSONNES_CHILDREN'),
                                             
