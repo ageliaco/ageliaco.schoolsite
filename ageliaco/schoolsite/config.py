@@ -27,7 +27,7 @@ CONTENT = {
   
   'PEDAGOGIQUE_CHILDREN': [
          ('cours', u'''Cours''', u'cours-title', 'Folder'),
-         ('disciplines', u'''Disciplines''', u'disciplines-title', 'DisciplineContainer'),
+        # ('disciplines', u'''Disciplines''', u'disciplines-title', 'DisciplineContainer'),
          ('plan-etudes-programmes', u'''Plan d'études et programmes''', u'plan-etudes-programmes-title', 'Folder'),
 
          ('options', u'''options''', u'options-title', 'Folder'),
@@ -88,13 +88,11 @@ CONTENT = {
 
   ],
   
-  'DISCIPLINES_CHILDREN': [
-         ('anglais', u'''Anglais''', u'anglais-title', 'Discipline'),
-         ('allemand', u'''Allemand''', u'allemand-title', 'Discipline'),
-         ('mathematiques', u'''Mathematiques''', u'mathematiques-title', 'Discipline'),
-
-         
-  ],
+  #'DISCIPLINES_CHILDREN': [
+  #       ('anglais', u'''Anglais''', u'anglais-title', 'Discipline'),
+  #       ('allemand', u'''Allemand''', u'allemand-title', 'Discipline'),
+  #       ('mathematiques', u'''Mathematiques''', u'mathematiques-title', 'Discipline'),      
+  #],
 
 }
 
