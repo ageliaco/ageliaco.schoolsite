@@ -29,7 +29,6 @@ setup(name='ageliaco.schoolsite',
           #'plone.app.contenttypes',
 
           'collective.makesitestructure',
-          'Products.PloneBooking',
       ],
       extras_require={
           'test': [

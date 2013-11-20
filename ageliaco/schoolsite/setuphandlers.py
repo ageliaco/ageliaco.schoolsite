@@ -131,11 +131,11 @@ def setupVarious(context):
     site = context.getSite()
     #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
 
-    # Install the PloneBooking dependency product here (not easy other way for now...)
-    qi = getToolByName(site, 'portal_quickinstaller')
-    if not qi.isProductInstalled('PloneBooking'):
-        #qi.installProduct('PloneBooking', locked=0)    
-        qi.installProduct('PloneBooking')
+#    # Install the PloneBooking dependency product here (not easy other way for now...)
+#     qi = getToolByName(site, 'portal_quickinstaller')
+#     if not qi.isProductInstalled('PloneBooking'):
+#         #qi.installProduct('PloneBooking', locked=0)    
+#         qi.installProduct('PloneBooking')
     
     # Setup groups + users.
     setupGroups(site)

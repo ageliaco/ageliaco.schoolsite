@@ -56,7 +56,7 @@ CONTENT = {
          ('outils-informatiques-administratifs-pour-enseignants', u'''outils-informatiques-administratifs-pour-enseignants''', u'outils-informatiques-administratifs-pour-enseignants-title', 'Folder'),
          ('bureaux-de-gestion--bureaux-horaires', u'''espace-bureaux-de-gestion--bureaux-horaires''', u'espace-bureaux-de-gestion--bureaux-horaires-title', 'Folder'),
 
-         ('gestion-des-reservations', u'''Gestion des réservations''', u'gestion-des-reservations-title', 'BookingCenter'),
+         #('gestion-des-reservations', u'''Gestion des réservations''', u'gestion-des-reservations-title', 'BookingCenter'),
          ('gestion-des-liberations', u'''Gestion des libérations''', u'gestion-des-liberations-title', 'Folder'),
          
   ],
