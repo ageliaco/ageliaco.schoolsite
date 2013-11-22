@@ -3,25 +3,7 @@
 import transaction
 
 # import logging
-# 
-# from zope.component import (
-#     getUtility,
-#     queryUtility,
-#     getMultiAdapter,
-#     queryMultiAdapter,
-# )
-# from zope.component.hooks import getSite
-# from zope.i18n.locales import locales
-# from zope.interface import implements
-# from Acquisition import aq_base, aq_inner
-# #from AccessControl import Unauthorized
-# from plone.i18n.normalizer.interfaces import IURLNormalizer
-# from plone.dexterity.utils import createContent
-# from plone.dexterity.fti import IDexterityFTI
-# #from plone.app.textfield.value import RichTextValue
-# #from plone.portlets.interfaces import (
-# #    ILocalPortletAssignmentManager, IPortletManager,)
-# 
+
 # #from Products.PythonScripts.PythonScript import PythonScript
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
