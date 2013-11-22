@@ -7,8 +7,6 @@
   <element value="news_listing"/>
  </property>
  
- <!-- Add the SMTP host: localhost -->
- 
  <property name="email_from_address" type="string">admin@schoolsite.com</property>
  <property name="email_from_name" type="string">Schoolsite Administrator</property>
  <property name="validate_email" type="boolean">True</property>

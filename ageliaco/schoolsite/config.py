@@ -27,7 +27,6 @@ CONTENT = {
   
   'PEDAGOGIQUE_CHILDREN': [
          ('cours', u'''Cours''', u'cours-title', 'Folder'),
-        # ('disciplines', u'''Disciplines''', u'disciplines-title', 'DisciplineContainer'),
          ('plan-etudes-programmes', u'''Plan d'études et programmes''', u'plan-etudes-programmes-title', 'Folder'),
 
          ('options', u'''options''', u'options-title', 'Folder'),
@@ -56,7 +55,6 @@ CONTENT = {
          ('outils-informatiques-administratifs-pour-enseignants', u'''outils-informatiques-administratifs-pour-enseignants''', u'outils-informatiques-administratifs-pour-enseignants-title', 'Folder'),
          ('bureaux-de-gestion--bureaux-horaires', u'''espace-bureaux-de-gestion--bureaux-horaires''', u'espace-bureaux-de-gestion--bureaux-horaires-title', 'Folder'),
 
-         #('gestion-des-reservations', u'''Gestion des réservations''', u'gestion-des-reservations-title', 'BookingCenter'),
          ('gestion-des-liberations', u'''Gestion des libérations''', u'gestion-des-liberations-title', 'Folder'),
          
   ],
@@ -88,12 +86,6 @@ CONTENT = {
 
   ],
   
-  #'DISCIPLINES_CHILDREN': [
-  #       ('anglais', u'''Anglais''', u'anglais-title', 'Discipline'),
-  #       ('allemand', u'''Allemand''', u'allemand-title', 'Discipline'),
-  #       ('mathematiques', u'''Mathematiques''', u'mathematiques-title', 'Discipline'),      
-  #],
-
 }
 
 

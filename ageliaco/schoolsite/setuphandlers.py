@@ -167,8 +167,6 @@ def importContent(context):
                                                ('presentation','ecole','PRESENTATION_ECOLE_CHILDREN'),
                                                ('presentation','etudes','PRESENTATION_ETUDES_CHILDREN'),
                                                ('presentation','personnes','PRESENTATION_PERSONNES_CHILDREN'),
-                                            
-                                             #  ('espace-pedagogique','disciplines','DISCIPLINES_CHILDREN'),
                                                   
                                                  ]:
         subfolder = portal[folder_id][subfolder_id]
