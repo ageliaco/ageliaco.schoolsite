@@ -7,9 +7,6 @@ import transaction
 # #from Products.PythonScripts.PythonScript import PythonScript
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
-# from Products.CMFPlone.utils import _createObjectByType
-# #from Products.CMFDefault.utils import bodyfinder
-# #from Products.CMFPlone.Portal import member_indexhtml
 
 from plone.app.contenttypes.setuphandlers import (
     _publish,
@@ -31,6 +28,7 @@ from collective.makesitestructure.utils import (
 
 from ageliaco.schoolsite.config import (
       CONTENT,
+      SITEADMIN_CONTENT,
       LOCAL_GROUPS,
 )
 
@@ -113,12 +111,6 @@ def setupVarious(context):
     site = context.getSite()
     #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
 
-#    # Install the PloneBooking dependency product here (not easy other way for now...)
-#     qi = getToolByName(site, 'portal_quickinstaller')
-#     if not qi.isProductInstalled('PloneBooking'):
-#         #qi.installProduct('PloneBooking', locked=0)    
-#         qi.installProduct('PloneBooking')
-    
     # Setup groups + users.
     setupGroups(site)
     setupInitialSiteAdmin(site)
@@ -138,6 +130,45 @@ def importContent(context):
 
     # Default sections and content, at the 1st level
     createCommonSectionsAndContents(portal, target_language)
+
+    ########################
+    
+    ### Site Administration part of the site structure
+    
+    ## 1st & 2nd levels
+
+    createDXSubcontainer(portal, 
+                         'Folder',
+                         'site-administration', 
+                         u'SITE ADMINISTRATION', 
+                         u'site-administration-title', 
+                         target_language)
+    siteadmin_root_folder = portal['site-administration']
+    siteadmin_root_folder.exclude_from_nav = True
+    siteadmin_root_folder.reindexObject()
+    
+    batchCreateSubcontainers(siteadmin_root_folder,
+                             SITEADMIN_CONTENT['MAIN_SECTIONS'], 
+                             target_language)     
+
+    # make _p_jar on content, before next batch of objects creation
+    transaction.savepoint(optimistic=True)
+
+    ## 3rd level
+    for folder_id, folder_contents_key in [
+                                            ('homepage','HOMEPAGE_CHILDREN'),
+                                         ]:
+        folder = siteadmin_root_folder[folder_id]
+        batchCreateSubcontainers(folder,
+                                 SITEADMIN_CONTENT[folder_contents_key], 
+                                 target_language)     
+
+    # make _p_jar on content, before next batch of objects creation
+    transaction.savepoint(optimistic=True)
+
+    ########################
+
+    ### Editorial part of the site structure
     
     ## 1st level - Other sections
     batchCreateSubcontainers(portal,
@@ -177,6 +208,8 @@ def importContent(context):
 # 
 #     # make _p_jar on content, before proceeding to various changes on the content
 #     transaction.savepoint(optimistic=True)
+
+    ########################
     
     # Hide some top-level folders from navigation
     HIDDEN_FOLDERS = ['news', 'events', 'images',]

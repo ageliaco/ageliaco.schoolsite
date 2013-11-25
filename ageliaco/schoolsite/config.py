@@ -6,6 +6,7 @@ CONTENT = {
          ('vie-ecole', u'''Vie de l'école''', u'vie-ecole-title', 'Folder'),
          ('espace-pedagogique', u'Espace pedagogique', u'espace-pedagogique-title', 'Folder'),
          ('espace-administratif', u'Espace administratif', u'espace-administratif-title', 'Folder'),
+
   ],
   
   'ABOUT_CHILDREN': [
@@ -88,6 +89,25 @@ CONTENT = {
 # 
 #   ],
   
+}
+
+
+# Technical sections to be used for Administering the website (excluded from NAV)
+SITEADMIN_CONTENT = {
+  'MAIN_SECTIONS': [
+         ('delegation-des-taches', u'delegation-des-taches', u'delegation-des-taches-title', 'Folder'),
+         ('contenus-a-modifier-chaque-annee', u'''Contenus à modifier chaque année''', u'contenus-a-modifier-chaque-annee-title', 'Folder'),
+         ('gestion-des-evenements', u'Gestion des événements', u'gestion-des-evenements-title', 'Folder'),
+         ('aide-et-documentation', u'Aide et documentation', u'aide-et-documentation-title', 'Folder'),
+         ('homepage', u'ACCUEIL', u'homepage-title', 'Folder'),
+  ],
+
+  'HOMEPAGE_CHILDREN': [
+         ('footer', u'''Footer''', u'footer-title', 'Folder'),
+         ('vitrines', u'''Vitrines''', u'vitrines-title', 'Folder'),
+         ('best-of', u'''Best of''', u'best-of-title', 'Folder'),
+  ],
+
 }
 
 
