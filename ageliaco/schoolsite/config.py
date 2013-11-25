@@ -6,7 +6,6 @@ CONTENT = {
          ('vie-ecole', u'''Vie de l'école''', u'vie-ecole-title', 'Folder'),
          ('espace-pedagogique', u'Espace pedagogique', u'espace-pedagogique-title', 'Folder'),
          ('espace-administratif', u'Espace administratif', u'espace-administratif-title', 'Folder'),
-        # ('presentation', u'Presentation', u'presentation-title', 'Folder'),
   ],
   
   'ABOUT_CHILDREN': [
@@ -27,6 +26,9 @@ CONTENT = {
   
   'PEDAGOGIQUE_CHILDREN': [
          ('cours', u'''Cours''', u'cours-title', 'Folder'),
+
+         ('disciplines', u'''Disciplines''', u'disciplines-title', 'Folder'),
+
          ('plan-etudes-programmes', u'''Plan d'études et programmes''', u'plan-etudes-programmes-title', 'Folder'),
 
          ('options', u'''options''', u'options-title', 'Folder'),
@@ -40,7 +42,7 @@ CONTENT = {
 
   ],
   
-  'ADMINISTRATIF_CHILDREN': [  # NON EXHAUSTIVE... COMPLETE LATER...
+  'ADMINISTRATIF_CHILDREN': [ 
          ('memento-eleves', u'''memento-eleves''', u'memento-eleves-title', 'Folder'),
          ('memento-enseignants', u'''memento-enseignants''', u'memento-enseignants-title', 'Folder'),
          ('autres-calendriers', u'''autres-calendriers''', u'autres-calendriers-title', 'Folder'),
@@ -60,31 +62,31 @@ CONTENT = {
   ],
 
   # --- 3rd level ---
-
-  'PRESENTATION_ECOLE_CHILDREN': [
-         ('adresse', u'''Adresse''', u'adresse-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('contact', u'''Contact''', u'contact-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('acces', u'''Accès''', u'acces-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('horaires', u'''Horaires''', u'horaires-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('utilisation-locaux', u'''Utilisation des locaux''', u'utilisation-locaux-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('circulation-et-parking', u'''Circulation et parking''', u'circulation-et-parking-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('securite', u'''Sécurité''', u'securite-title', 'Document', u'''Remplacez par votre texte...'''),
-
-  ],
-
-  'PRESENTATION_ETUDES_CHILDREN': [
-         ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document', u'''Remplacez par votre texte...'''),
-         # TODO : Cabler les 2 liens...
-  ],
-  
-  'PRESENTATION_PERSONNES_CHILDREN': [
-         ('direction', u'''Direction''', u'direction-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('enseignants', u'''Enseignants''', u'enseignants-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('personnel-administratif-et-technique', u'''Personnel administratif et technique''', u'personnel-administratif-et-technique-title', 'Document', u'''Remplacez par votre texte...'''),
-         ('eleves', u'''Elèves''', u'eleves-title', 'Document', u'''Remplacez par votre texte...'''),
-
-  ],
+  ## Let's disable the 3rd level for now!
+#   'PRESENTATION_ECOLE_CHILDREN': [
+#          ('adresse', u'''Adresse''', u'adresse-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('contact', u'''Contact''', u'contact-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('acces', u'''Accès''', u'acces-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('horaires', u'''Horaires''', u'horaires-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('utilisation-locaux', u'''Utilisation des locaux''', u'utilisation-locaux-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('circulation-et-parking', u'''Circulation et parking''', u'circulation-et-parking-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('securite', u'''Sécurité''', u'securite-title', 'Document', u'''Remplacez par votre texte...'''),
+# 
+#   ],
+# 
+#   'PRESENTATION_ETUDES_CHILDREN': [
+#          ('etudes-dans-notre-ecole', u'''Les études dans notre école''', u'etudes-dans-notre-ecole-title', 'Document', u'''Remplacez par votre texte...'''),
+#          # TODO : Cabler les 2 liens...
+#   ],
+#   
+#   'PRESENTATION_PERSONNES_CHILDREN': [
+#          ('direction', u'''Direction''', u'direction-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('conseil-de-direction', u'''Conseil de direction''', u'conseil-de-direction-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('enseignants', u'''Enseignants''', u'enseignants-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('personnel-administratif-et-technique', u'''Personnel administratif et technique''', u'personnel-administratif-et-technique-title', 'Document', u'''Remplacez par votre texte...'''),
+#          ('eleves', u'''Elèves''', u'eleves-title', 'Document', u'''Remplacez par votre texte...'''),
+# 
+#   ],
   
 }
 

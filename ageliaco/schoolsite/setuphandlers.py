@@ -163,20 +163,20 @@ def importContent(context):
     transaction.savepoint(optimistic=True)
                              
     ## 3nd level...
-    for folder_id, subfolder_id, subfolder_contents_key in [
-                                               ('presentation','ecole','PRESENTATION_ECOLE_CHILDREN'),
-                                               ('presentation','etudes','PRESENTATION_ETUDES_CHILDREN'),
-                                               ('presentation','personnes','PRESENTATION_PERSONNES_CHILDREN'),
-                                                  
-                                                 ]:
-        subfolder = portal[folder_id][subfolder_id]
-        batchCreateSubcontainers(subfolder,
-                                 CONTENT[subfolder_contents_key], 
-                                 target_language)     
-
-
-    # make _p_jar on content, before proceeding to various changes on the content
-    transaction.savepoint(optimistic=True)
+    # Let's disable the 3rd level for now!
+#     for folder_id, subfolder_id, subfolder_contents_key in [
+#                                                ('presentation','ecole','PRESENTATION_ECOLE_CHILDREN'),
+#                                                ('presentation','etudes','PRESENTATION_ETUDES_CHILDREN'),
+#                                                ('presentation','personnes','PRESENTATION_PERSONNES_CHILDREN'),
+#                                                   
+#                                                  ]:
+#         subfolder = portal[folder_id][subfolder_id]
+#         batchCreateSubcontainers(subfolder,
+#                                  CONTENT[subfolder_contents_key], 
+#                                  target_language)     
+# 
+#     # make _p_jar on content, before proceeding to various changes on the content
+#     transaction.savepoint(optimistic=True)
     
     # Hide some top-level folders from navigation
     HIDDEN_FOLDERS = ['news', 'events', 'images',]
