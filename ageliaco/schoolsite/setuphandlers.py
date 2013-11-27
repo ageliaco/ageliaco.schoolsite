@@ -210,6 +210,8 @@ def importContent(context):
 #     transaction.savepoint(optimistic=True)
 
     ########################
+
+    ### Additional adjustments
     
     # Hide some top-level folders from navigation
     HIDDEN_FOLDERS = ['news', 'events', 'images',]
@@ -218,3 +220,34 @@ def importContent(context):
         folder.exclude_from_nav = True
         folder.reindexObject()
     
+    # News Aggregator: Query by Type and Review State: We also want to list contents with 'visible' state
+    news_folder = portal['news']
+    news_aggregator = news_folder['aggregator']
+    news_aggregator.query = [
+            {'i': u'portal_type',
+             'o': u'plone.app.querystring.operation.selection.is',
+             'v': [u'News Item'],
+             },
+            {'i': u'review_state',
+             'o': u'plone.app.querystring.operation.selection.is',
+             'v': [u'published', 'visible'],
+             },
+        ]
+
+    # Events Aggregator: Query by Type, Review State and Event start date after today: We also want to list contents with 'visible' state
+    events_folder = portal['events']
+    events_aggregator = events_folder['aggregator']
+    events_aggregator.query = [
+            {'i': 'portal_type',
+             'o': 'plone.app.querystring.operation.selection.is',
+             'v': ['Event']
+             },
+            {'i': 'start',
+             'o': 'plone.app.querystring.operation.date.afterToday',
+             'v': ''
+             },
+            {'i': 'review_state',
+             'o': 'plone.app.querystring.operation.selection.is',
+             'v': ['published', 'visible']
+             },
+        ]
