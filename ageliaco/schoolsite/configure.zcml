@@ -6,7 +6,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="ageliaco.schoolsite">
       
-
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
 
@@ -37,5 +36,11 @@
         description="Website content profile"
         provides="Products.GenericSetup.interfaces.EXTENSION" 
         />
+
+  <!-- Register a resource directory from which we can deploy static
+       resource files. -->
+  <browser:resourceDirectory
+      name="ageliaco.schoolsite"
+      directory="resources" />
 
 </configure>
