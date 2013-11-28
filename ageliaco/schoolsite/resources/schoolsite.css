@@ -1,4 +1,6 @@
 
-#portal-footer {
+#portal-footer,
+#portal-colophon {
     display: none;
+    
 }
