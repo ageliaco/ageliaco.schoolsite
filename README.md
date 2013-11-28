@@ -6,6 +6,4 @@ Plone site customization package for upper secondary schools in Geneva, develope
 TODO
 ----
 
-- Add GS profile for the specifc workflow settings.
-- Remove the creation of our initial groups, while keeping the test users that are useful for the 
-  webmaster willing to test the new site.
+- Update the CSS with rules.
