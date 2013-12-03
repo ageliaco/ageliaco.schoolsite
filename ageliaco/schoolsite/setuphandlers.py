@@ -139,11 +139,11 @@ def importContent(context):
 
     createDXSubcontainer(portal, 
                          'Folder',
-                         'site-administration', 
+                         'siteadministration', 
                          u'SITE ADMINISTRATION', 
                          u'site-administration-title', 
                          target_language)
-    siteadmin_root_folder = portal['site-administration']
+    siteadmin_root_folder = portal['siteadministration']
     siteadmin_root_folder.exclude_from_nav = True
     siteadmin_root_folder.reindexObject()
     

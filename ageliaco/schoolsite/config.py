@@ -32,31 +32,31 @@ CONTENT = {
 
          ('plan-etudes-programmes', u'''Plan d'études et programmes''', u'plan-etudes-programmes-title', 'Folder'),
 
-         ('options', u'''options''', u'options-title', 'Folder'),
+         ('options', u'''Options''', u'options-title', 'Folder'),
          ('cours-facultatifs', u'''Cours facultatifs''', u'cours-facultatifs-title', 'Folder'),
          ('soutien-pedagogique', u'''Soutien pédagogique''', u'soutien-pedagogique-title', 'Folder'),
-         ('integration-eleves-avec-handicap', u'''integration-eleves-avec-handicap''', u'integration-eleves-avec-handicap-title', 'Folder'),
+         ('integration-eleves-avec-handicap', u'''Intégration des élèves avec handicap''', u'integration-eleves-avec-handicap-title', 'Folder'),
 
-         ('echanges-sejours', u'''echanges-sejours''', u'echanges-sejours-title', 'Folder'),
+         ('echanges-sejours', u'''Echanges et séjours''', u'echanges-sejours-title', 'Folder'),
          ('centre-documentation', u'''Centre de documentation''', u'centre-documentation-title', 'Folder'),
-         ('materiel-services-a-disposition', u'''materiel-services-a-disposition''', u'materiel-services-a-disposition-title', 'Folder'),
+         ('materiel-services-a-disposition', u'''Matériel et services à disposition''', u'materiel-services-a-disposition-title', 'Folder'),
 
   ],
   
   'ADMINISTRATIF_CHILDREN': [ 
-         ('memento-eleves', u'''memento-eleves''', u'memento-eleves-title', 'Folder'),
-         ('memento-enseignants', u'''memento-enseignants''', u'memento-enseignants-title', 'Folder'),
-         ('autres-calendriers', u'''autres-calendriers''', u'autres-calendriers-title', 'Folder'),
+         ('memento-eleves', u'''Mémento des élèves''', u'memento-eleves-title', 'Folder'),
+         ('memento-enseignants', u'''Mémento des enseignants''', u'memento-enseignants-title', 'Folder'),
+         ('autres-calendriers', u'''Autres calendriers''', u'autres-calendriers-title', 'Folder'),
 
-         ('inscriptions-transferts', u'''inscriptions-transferts''', u'inscriptions-transferts-title', 'Folder'),
-         ('formulaires', u'''formulaires''', u'formulaires-title', 'Folder'),
-         ('listes-horaires-coordonnees', u'''listes-horaires-coordonnees''', u'listes-horaires-coordonnees-title', 'Folder'),
-         ('conference-presidents-de-groupe', u'''conference-presidents-de-groupe''', u'conference-presidents-de-groupe-title', 'Folder'),
-         ('reglements', u'''reglements''', u'reglements-title', 'Folder'),
+         ('inscriptions-transferts', u'''Inscriptions et transferts''', u'inscriptions-transferts-title', 'Folder'),
+         ('formulaires', u'''Formulaires''', u'formulaires-title', 'Folder'),
+         ('listes-horaires-coordonnees', u'''Listes des horaires et coordonnées''', u'listes-horaires-coordonnees-title', 'Folder'),
+         ('conference-presidents-de-groupe', u'''Conférence des présidents de groupe''', u'conference-presidents-de-groupe-title', 'Folder'),
+         ('reglements', u'''Règlements''', u'reglements-title', 'Folder'),
          
-         ('infos-officielles--directives', u'''infos-officielles--directives''', u'infos-officielles--directives-title', 'Folder'),
-         ('outils-informatiques-administratifs-pour-enseignants', u'''outils-informatiques-administratifs-pour-enseignants''', u'outils-informatiques-administratifs-pour-enseignants-title', 'Folder'),
-         ('bureaux-de-gestion--bureaux-horaires', u'''espace-bureaux-de-gestion--bureaux-horaires''', u'espace-bureaux-de-gestion--bureaux-horaires-title', 'Folder'),
+         ('infos-officielles--directives', u'''Informations officielles - Directives''', u'infos-officielles--directives-title', 'Folder'),
+         ('outils-informatiques-administratifs-pour-enseignants', u'''Outils informatiques administratifs pour les enseignants''', u'outils-informatiques-administratifs-pour-enseignants-title', 'Folder'),
+         ('bureaux-de-gestion--bureaux-horaires', u'''Espace bureaux de gestion, bureaux horaires''', u'espace-bureaux-de-gestion--bureaux-horaires-title', 'Folder'),
 
          ('gestion-des-liberations', u'''Gestion des libérations''', u'gestion-des-liberations-title', 'Folder'),
          
@@ -95,7 +95,7 @@ CONTENT = {
 # Technical sections to be used for Administering the website (excluded from NAV)
 SITEADMIN_CONTENT = {
   'MAIN_SECTIONS': [
-         ('delegation-des-taches', u'delegation-des-taches', u'delegation-des-taches-title', 'Folder'),
+         ('delegation-des-taches', u'Délégation des tâches', u'delegation-des-taches-title', 'Folder'),
          ('contenus-a-modifier-chaque-annee', u'''Contenus à modifier chaque année''', u'contenus-a-modifier-chaque-annee-title', 'Folder'),
          ('gestion-des-evenements', u'Gestion des événements', u'gestion-des-evenements-title', 'Folder'),
          ('aide-et-documentation', u'Aide et documentation', u'aide-et-documentation-title', 'Folder'),
