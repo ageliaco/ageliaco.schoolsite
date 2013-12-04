@@ -1,6 +1,6 @@
 <layers>
   <layer
-    name="plone.app.contenttypes"
-    interface="plone.app.contenttypes.interfaces.IPloneAppContenttypesLayer"
+    name="ageliaco.schoolsite"
+    interface="ageliaco.schoolsite.interfaces.IAgeliacoSchoolSiteLayer"
     />
 </layers>

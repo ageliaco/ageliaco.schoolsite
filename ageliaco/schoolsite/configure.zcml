@@ -22,12 +22,12 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-    <genericsetup:importStep
+    <!-- genericsetup:importStep
         name="schoolsite-various"
         title="Setup various for ageliaco.schoolsite"
         description=""
         handler=".setuphandlers.setupVarious" 
-        />
+        / -->
 
     <genericsetup:registerProfile
         name="schoolsite-content"

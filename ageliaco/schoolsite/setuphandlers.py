@@ -4,7 +4,6 @@ import transaction
 
 # import logging
 
-# #from Products.PythonScripts.PythonScript import PythonScript
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
 
@@ -13,9 +12,6 @@ from plone.app.contenttypes.setuphandlers import (
     _translate,
     addContentToContainer,
     _get_locales_info,
-#    _set_language_settings,
-#    _setup_visible_ids,
-#    #_setup_calendar,
 )
 
 from collective.makesitestructure.utils import (
@@ -29,7 +25,6 @@ from collective.makesitestructure.utils import (
 from ageliaco.schoolsite.config import (
       CONTENT,
       SITEADMIN_CONTENT,
-      LOCAL_GROUPS,
 )
 
 from ageliaco.schoolsite import _
@@ -45,75 +40,6 @@ from ageliaco.schoolsite import _
 #         """
 #         return [u'plone.app.contenttypes:uninstall']
 
-
-## Reused functions for the "setup various" part
-
-def setupGroups(site):
-    """
-    Create our specific set of groups.
-    """
-    uf = getToolByName(site, 'acl_users')
-    gtool = getToolByName(site, 'portal_groups')
-    regtool = getToolByName(site, 'portal_registration')
-    
-    for groupid, memberid in LOCAL_GROUPS: 
-        if not uf.searchGroups(id=groupid):
-            gtool.addGroup(groupid, title=groupid,
-                       roles=[])
-                       
-        # Setup a test user as a member of each group
-        member_properties = {
-                 'username': memberid,
-                 'fullname': memberid,
-                 'email': memberid + '@schoolsite.com',
-               }
-        try:
-            # addMember() returns MemberData object
-            member = regtool.addMember(memberid, memberid, properties=member_properties)
-            print "Added member: " + member.getUserName()
-            gtool.addPrincipalToGroup(memberid, groupid)
-        except ValueError, e:
-            # Give user visual feedback what went wrong
-            #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
-            print u"Could not create the user or add it to the group:" + unicode(e), "error"
-
-def setupInitialSiteAdmin(site):
-    """
-    Initial Site Admin.
-    """
-    uf = getToolByName(site, 'acl_users')
-    gtool = getToolByName(site, 'portal_groups')
-    regtool = getToolByName(site, 'portal_registration')
-
-    properties = {
-                 'username': 'siteadmin',
-                 'fullname': u"Site Admin",
-                 'email': 'siteadmin@schoolsite.com',
-               }
-    try:
-        member = regtool.addMember('siteadmin', 'admin', properties=properties)
-        print "Added siteadmin"
-        gtool.addPrincipalToGroup('siteadmin', 'Site Administrators')
-    except ValueError, e:
-        # Give user visual feedback what went wrong
-        #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
-        print u"Could not create the siteadmin user or add it to the group:" + unicode(e), "error"
-
-## Setup various function
-
-def setupVarious(context):
-    """Import step for configuration that is not handled in xml files.
-    """
-    # Only run step if a flag file is present
-    if context.readDataFile('ageliaco.schoolsite_various.txt') is None:
-        return
-    logger = context.getLogger('ageliaco.schoolsite')
-    site = context.getSite()
-    #add_catalog_indexes(site, logger)    # Initial code copied from p.a.multilingual
-
-    # Setup groups + users.
-    setupGroups(site)
-    setupInitialSiteAdmin(site)
 
 
 ## Import function

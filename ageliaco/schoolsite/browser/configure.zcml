@@ -4,6 +4,13 @@
   xmlns:plone="http://namespaces.plone.org/plone"
   i18n_domain="ageliaco.schoolsite">
 
-
-
+  <browser:page 
+    for="plone.app.layout.navigation.interfaces.INavigationRoot"
+    name="quickadd-users-groups"
+    class=".views.QuickAddUsersGroups"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    permission="cmf.ManagePortal"
+    />
+    
+    
 </configure>
