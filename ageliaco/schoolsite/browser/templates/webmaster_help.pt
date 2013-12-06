@@ -1,0 +1,33 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
+
+<body>
+
+<metal:main fill-slot="main" >
+
+    <h1 class="documentFirstHeading" >Webmaster Help</h1>
+
+    <div class="documentDescription" >
+       Les premières infos pour le Webmestre (les liens vers les principaux panneaux de contrôle, Actions, etc.)
+    </div>
+
+    <div id="content-core">
+
+       <p>A compléter...</p>
+       
+    </div>
+</metal:main>
+
+</body>
+</html>
+

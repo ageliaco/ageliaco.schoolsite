@@ -72,3 +72,9 @@ class QuickAddUsersGroups(BrowserView):
         return result
 
 
+
+class WebmasterHelp(BrowserView):
+
+    def hello(self):
+        return "Hello"            
+            
