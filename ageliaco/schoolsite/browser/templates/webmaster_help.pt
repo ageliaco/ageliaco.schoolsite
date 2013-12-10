@@ -18,13 +18,76 @@
     <h1 class="documentFirstHeading" >Webmaster Help</h1>
 
     <div class="documentDescription" >
-       Les premières infos pour le Webmestre (les liens vers les principaux panneaux de contrôle, Actions, etc.)
     </div>
 
     <div id="content-core">
 
-       <p>A compléter...</p>
-       
+        <div id="webmaster-help" >
+          <div class="row" >
+             <div class="cell width-1:2 position-0" >
+                 <h2>Administration générale du site</h2>
+                 <p>Ou aller pour l'administration quotidienne du site ?</p>
+                 
+                 <ul class="configlets" >
+                      <li>
+                          <a href="" 
+                             tal:attributes="href string:${portal_url}/siteadministration" >
+                              <img src="" alt=""
+                                   tal:attributes="src string:${portal_url}/maintenance_icon.png" />
+                                  Espace d'administration du site
+                          </a>
+                      </li>
+
+                      <li>
+                          <a href="" 
+                             tal:attributes="href string:${portal_url}/@@quickadd-users-groups" >
+                              <img src="" alt=""
+                                   tal:attributes="src string:${portal_url}/maintenance_icon.png" />
+                                  Ajouter des comptes de groupes "Ecole"
+                          </a>  (script de création de comptes hors-LDAP)
+                      </li>
+
+                 </ul>
+
+             </div>
+             
+             <div class="cell width-1:2 position-1:2">
+                 <h2>Documentation</h2>
+                 <p>Ou trouver la documentation pour des points spécifques ?</p>
+                 
+                 <ul class="configlets" >
+                      <li>
+                          <a href="" 
+                             tal:attributes="href string:${portal_url}/siteadministration/aide-et-documentation" >
+                              <img src="" alt=""
+                                   tal:attributes="src string:${portal_url}/maintenance_icon.png" />
+                                  Aide et documentation "Kit Ecole"
+                          </a>
+                      </li>
+                     <!--
+                      <li>
+                          <a href="" 
+                             tal:attributes="href string:${portal_url}/siteadministration/aide-et-documentation" >
+                              <img src="" alt=""
+                                   tal:attributes="src string:${portal_url}/maintenance_icon.png" />
+                                  Aide et documentation "Kit Ecole"
+                          </a>
+                      </li> -->
+                      <li>
+                          <a href="http://plone.fr/documentation/documentation-integrateur/ploneformgen/index.html" >
+                              <img src="" alt=""
+                                   tal:attributes="src string:${portal_url}/maintenance_icon.png" />
+                                  Documentation de PloneFormGen
+                          </a>
+                      </li>
+
+
+                 </ul>
+
+             </div>
+          </div>
+        </div>
+
     </div>
 </metal:main>
 

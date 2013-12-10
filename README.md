@@ -14,9 +14,6 @@ Dependencies
 TODO
 ----
 
-- Add an Admin page (configlet) that provides the links to our admin interfaces, such as the @@quickadd-users-groups view,
-  and useful technical information. [Near Term]
-  
 - Update the CSS with more common rules for school sites. [Immediate Term]
 
 - Add tests to the package. [Near Term]
