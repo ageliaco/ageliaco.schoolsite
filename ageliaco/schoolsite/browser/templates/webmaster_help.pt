@@ -43,7 +43,7 @@
                              tal:attributes="href string:${portal_url}/@@quickadd-users-groups" >
                               <img src="" alt=""
                                    tal:attributes="src string:${portal_url}/maintenance_icon.png" />
-                                  Ajouter des comptes de groupes "Ecole"
+                                  Ajouter le compte 'siteadmin' et autres comptes utilisateurs et groupes initiaux
                           </a>  (script de création de comptes hors-LDAP)
                       </li>
 
