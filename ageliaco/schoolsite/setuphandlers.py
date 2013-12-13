@@ -14,7 +14,7 @@ from plone.app.contenttypes.setuphandlers import (
     _get_locales_info,
 )
 
-from collective.makesitestructure.utils import (
+from ageliaco.schoolsite.utils import (
       setLanguageInfo,
       createDXSubcontainer, createATSubcontainer,
       createSectionWithAggregator,

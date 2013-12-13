@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0a3dev'
+version = '1.0a4dev'
 
 setup(name='ageliaco.schoolsite',
       version=version,
@@ -26,9 +26,7 @@ setup(name='ageliaco.schoolsite',
           'setuptools',
           'Products.CMFPlone',
           #'plone.app.dexterity[grok,relations]',
-          #'plone.app.contenttypes',
-
-          'collective.makesitestructure',
+          'plone.app.contenttypes',
       ],
       extras_require={
           'test': [
