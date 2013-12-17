@@ -78,3 +78,33 @@ class WebmasterHelp(BrowserView):
     def hello(self):
         return "Hello"            
             
+            
+    def isInitialAdminUserAdded(self):
+
+        context = self.context        
+    
+        uf = getToolByName(context, 'acl_users')
+        #gtool = getToolByName(context, 'portal_groups')
+
+        results = uf.searchUsers(id='siteadmin')
+        for res in results:
+            if res['userid'] == 'siteadmin':
+                #print res['userid']
+                return True
+        return False
+        
+    def isInitialGroupsAdded(self):
+
+        context = self.context        
+    
+        uf = getToolByName(context, 'acl_users')
+        #gtool = getToolByName(context, 'portal_groups')
+
+        # For now, for simplicity, we only test the first group created in the initial phase: 'DirectionGroup'
+        results = uf.searchGroups(id='DirectionGroup')
+        for res in results:
+            if res['groupid'] == 'DirectionGroup':
+                #print res['groupid']
+                return True
+        return False
+        
