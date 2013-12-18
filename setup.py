@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0a4dev'
+version = '1.0a5dev'
 
 setup(name='ageliaco.schoolsite',
       version=version,
