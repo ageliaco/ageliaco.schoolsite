@@ -16,6 +16,7 @@ from plone.app.contenttypes.setuphandlers import (
 
 from ageliaco.schoolsite.utils import (
       setLanguageInfo,
+      createDXDocument,
       createDXSubcontainer, createATSubcontainer,
       createSectionWithAggregator,
       batchCreateSubcontainers,
@@ -25,6 +26,7 @@ from ageliaco.schoolsite.utils import (
 from ageliaco.schoolsite.config import (
       CONTENT,
       SITEADMIN_CONTENT,
+      HOMEPAGE_TEXT
 )
 
 from ageliaco.schoolsite import _
@@ -95,6 +97,14 @@ def importContent(context):
     ########################
 
     ### Editorial part of the site structure
+
+    ## Welcome document
+    createDXDocument(portal, 
+                     'front-page', 
+                     u'Bienvenue', 
+                     u'front-page-title',  
+                     HOMEPAGE_TEXT,  # The text 
+                     target_language)
     
     ## 1st level - Other sections
     batchCreateSubcontainers(portal,

@@ -42,24 +42,22 @@
                                       groupsAdded view/isInitialGroupsAdded" >
    
                           <tal:if condition="python: adminUserAdded and groupsAdded" >
+                            <a href="" 
+                               tal:attributes="href string:${portal_url}/@@usergroup-userprefs" >   
                                   <img src="" alt=""
                                        tal:attributes="src string:${portal_url}/maintenance_icon.png" />
-                                  Compte 'siteadmin' et autres comptes utilisateurs et groupes initiaux :<br>
-                                  <ul>
-                                  Le compte 'siteadmin' et les autres comptes utilisateurs 
-                                  et groupes initiaux ont déjà été créé.<br>
-                                  Visitez le panneau de contrôle de Plone pour le vérifier.
-                                  </ul>
+                                  Gérer les comptes utilisateurs et groupes
+                            </a> (Les comptes initiaux hors-LDAP ont été créés.) 
+
                           </tal:if>
-
+                          
                           <tal:if condition="not: python: adminUserAdded and groupsAdded" >
-
                             <a href="" 
                                tal:attributes="href string:${portal_url}/@@quickadd-users-groups" >   
                                   <img src="" alt=""
                                        tal:attributes="src string:${portal_url}/maintenance_icon.png" />
                                   Ajouter le compte 'siteadmin' et autres comptes utilisateurs et groupes initiaux
-                            </a>  (comptes hors-LDAP)
+                            </a>  (Création de comptes initiaux hors-LDAP.)
                           </tal:if>
                           
                       </li>
