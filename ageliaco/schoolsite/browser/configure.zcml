@@ -21,5 +21,17 @@
     permission="cmf.ManagePortal"
     />
 
-    
+  <!-- Override the header to insert EDU/EEL bandeau -->
+  <browser:viewlet
+    name="plone.header"
+    manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+    template="templates/portal_header.pt"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    permission="zope2.View"
+    />
+
+
+
+
+
 </configure>

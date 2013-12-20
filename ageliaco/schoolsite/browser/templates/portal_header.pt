@@ -1,0 +1,36 @@
+<div id="portal-header">
+
+  <!-- bandeau espace ecole (by JMD / PloneDIP) -->
+  <div class="noprint" id="eeel-container">
+  
+	<div id="eeel-left">
+		<div id="eeel-menu">
+			<ul>
+                <li><a title="Impressum" href="http://icp.ge.ch/sem/sites/spip.php?article29" 
+                     target="blank" title="IMPRESSUM">
+                       <img src="impressum" width="70" height="22">
+                </a></li>
+				<li><a href="http://www.ge.ch/">Gen&egrave;ve</a></li>
+                <li><a href="http://www.ge.ch/dip/">Instruction publique</a></li>
+				<li><a href="http://www.ge.ch/sem/">Service Ecoles-M&eacute;dias</a></li>
+			</ul>
+		</div>
+    </div>
+
+    <div class="noprint" id="eeel-secondline">
+	  <ul>
+	    <li><a title="Messagerie" href="https://mailedu.ge.ch/">Messagerie EDU</a></li>
+	    <li><a title="Support" href="http://bdp.ge.ch/support/">Forum Support</a></li>
+	    <li><a title="MEMO école" href="https://prod.etat-ge.ch/edugeco/memo">MEMO école</a></li>
+	    <li class="last"><a title="MEMO maison" href="https://ge.ch/edugeco/memo">MEMO maison</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <br class="noprint">
+  <!-- /bandeau espace ecole -->
+
+  <div tal:replace="structure provider:plone.portalheader" />
+
+</div>
