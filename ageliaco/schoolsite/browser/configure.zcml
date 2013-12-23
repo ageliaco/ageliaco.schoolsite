@@ -30,8 +30,15 @@
     permission="zope2.View"
     />
 
-
-
+  <!-- Override the footer to insert our version of Sitemap / Megafooter -->
+  <browser:viewlet
+    name="plone.footer"
+    manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+    template="templates/footer.pt"
+    class=".views.FooterViewlet"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    permission="zope2.View"    
+    />
 
 
 </configure>

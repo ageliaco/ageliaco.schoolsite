@@ -8,13 +8,10 @@ Only tested on Plone 4.3 for now.
 Dependencies
 ------------
 
-- collective.makesitestructure: https://github.com/kamon/collective.makesitestructure
-  Would be nice, later, to reduce the code there, and even remove that dependency, by using plone.api.
+- plone.app.contenttypes.
 
 TODO
 ----
-
-- Update the CSS with more common rules for school sites. [Immediate Term]
 
 - Add tests to the package. [Near Term]
 

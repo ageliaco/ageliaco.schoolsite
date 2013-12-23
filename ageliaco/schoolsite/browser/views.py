@@ -1,15 +1,39 @@
 
+from datetime import date
+
 #from zope import component
 
 from Products.Five.browser import BrowserView
 
 from Products.CMFCore.utils import getToolByName
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.layout.viewlets.common import ViewletBase
+
 from ageliaco.schoolsite.config import (
       LOCAL_GROUPS,
 )
 
 
+
+## Viewlets
+
+class FooterViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/footer.pt')
+
+    def update(self):
+        super(FooterViewlet, self).update()
+        self.year = date.today().year
+
+        portal = self.portal_state.portal()
+        sitemap_setting_container = portal.siteadministration.homepage.footer
+        filter = {'portal_type':['Document'], 'review_state':['published']}                                                                                    
+        sitemap_setting_items = sitemap_setting_container.getFolderContents(contentFilter = filter)
+        self.sitemap_setting_items = sitemap_setting_items
+
+
+
+## Views        
 
 class QuickAddUsersGroups(BrowserView):
     """

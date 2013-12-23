@@ -1,12 +1,4 @@
 
-/*
-#portal-footer,
-#portal-colophon {
-    display: none;
-    
-}*/
-
-
 /*------------------------------------------------------------------- */
 /*------------------------------------------------------------------- */
 /* CSS POUR LE BANDEAU ECOLE */
@@ -86,3 +78,74 @@ padding-right: 0.05em;
 #eeel-secondline li a.last{padding-right: 0; border-right:0;}
 
 /* --------------FIN BANNER EEEP-------------- */
+
+
+/*------------------------------------------------------------------- */
+/*------------------------------------------------------------------- */
+/* CSS POUR LE MEGAFOOTER */
+/*------------------------------------------------------------------- */
+/*------------------------------------------------------------------- */
+
+#portal-megafooter-wrapper {
+    font-size: 70%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#portal-megafooter-wrapper li {
+    padding:0 0.75em;
+}
+
+#portal-megafooter-wrapper a {
+color: #00539b;
+}
+
+#portal-megafooter {
+margin:auto;
+background-color: #cee1f0;
+padding-bottom: 20px;
+border-radius: 0px 0px 5px 5px;
+}
+
+#portal-megafooter li {
+display:inline-block;
+vertical-align:top;
+margin : 15px 90px 0 auto;
+}
+
+
+/*css pour les 4 colonnes des 4 entrées (prés, vie, adm, ped)*/
+/*
+div#boite
+{margin	: 15px auto 0 auto;
+padding	: 0 5%;
+background-color: &transparent;
+}
+
+div#col1, div#col2
+{
+background-color: #eeeeee;
+width: 46%;
+padding	: 5px 5px 5px 5px;
+height: 200px;
+border-radius: 10px 10px 10px 10px;
+}
+
+div#col1
+{
+float: left;
+}
+
+div#col2
+{
+float: right;
+}
+
+.4titres a
+{
+font-size: 180%;
+}
+*/
+
+
+
