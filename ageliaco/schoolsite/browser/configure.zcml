@@ -25,7 +25,7 @@
   <browser:viewlet
     name="plone.header"
     manager="plone.app.layout.viewlets.interfaces.IPortalTop"
-    template="templates/portal_header.pt"
+    class=".views.HeaderViewlet"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="zope2.View"
     />
@@ -34,7 +34,6 @@
   <browser:viewlet
     name="plone.footer"
     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-    template="templates/footer.pt"
     class=".views.FooterViewlet"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="zope2.View"    

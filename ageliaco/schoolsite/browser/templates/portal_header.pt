@@ -1,4 +1,5 @@
-<div id="portal-header">
+<div id="portal-header"
+     tal:define="site_url view/site_url" >
 
   <!-- bandeau espace ecole (by JMD / PloneDIP) -->
   <div class="noprint" id="eeel-container">
@@ -9,7 +10,7 @@
                 <li><a title="Impressum" href="http://icp.ge.ch/sem/sites/spip.php?article29" 
                      target="blank" title="IMPRESSUM">
                        <img src="/++resource++ageliaco.schoolsite/impressum.gif"
-                            tal:attributes="src string:/++resource++ageliaco.schoolsite/impressum.gif" 
+                            tal:attributes="src string:$site_url/++resource++ageliaco.schoolsite/impressum.gif" 
                             width="70" height="22" />
                 </a></li>
 				<li><a href="http://www.ge.ch/">Gen&egrave;ve</a></li>

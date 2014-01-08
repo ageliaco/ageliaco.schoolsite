@@ -18,6 +18,16 @@ from ageliaco.schoolsite.config import (
 
 ## Viewlets
 
+class HeaderViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/portal_header.pt')
+
+    def update(self):
+        super(HeaderViewlet, self).update()
+
+        site_url = self.portal_state.portal_url()
+        self.site_url = site_url 
+
+
 class FooterViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/footer.pt')
 
@@ -30,6 +40,9 @@ class FooterViewlet(ViewletBase):
         filter = {'portal_type':['Document'], 'review_state':['published']}                                                                                    
         sitemap_setting_items = sitemap_setting_container.getFolderContents(contentFilter = filter)
         self.sitemap_setting_items = sitemap_setting_items
+
+
+
 
 
 
