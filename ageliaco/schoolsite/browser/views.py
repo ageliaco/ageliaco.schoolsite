@@ -148,8 +148,7 @@ class WebmasterHelp(BrowserView):
         
 
 
-
-
+# Functions and constants for the import of events
 
 def cleaning(mot):
     # suppression des "
@@ -171,9 +170,9 @@ def multisubject(mot):
             word = s
     return word
 
-def getDateParts(datestring):
-    # date parts from a string of the form: 08/26/2013 07:30
-    first_split = datestring.split(' ')
+def convertCSVEntryToDatetimeObject(entry):
+    # get datetime obj from a csv column data (string) of the form: 08/26/2013 07:30
+    first_split = entry.split(' ')
     date = first_split[0]
     hour_and_min = first_split[1]
 
@@ -186,9 +185,13 @@ def getDateParts(datestring):
     hour = third_split[0]
     min = third_split[1]
 
-    return int(year), int(month), int(day), int(hour), int(min)
+    return datetime(int(year), int(month), int(day), int(hour), int(min))
 
 
+DEFAULT_TIMEZONE = "Europe/Zurich"
+CSV_FILE_NAME = 'evenements.csv'
+
+# BrowserView class for importing contents
 
 class ImportEvents(BrowserView):
     """
@@ -199,7 +202,8 @@ class ImportEvents(BrowserView):
         context = self.context
         # recupere chaque ligne du fichier voulu (ici 'evenements')
 
-        events = context.evenements.data.split('\n')
+        events_data_file = context[CSV_FILE_NAME]
+        events = events_data_file.data.split('\n')
         nb_lines=len(events)
 
         # liste tous les objets du dossier et creation d'une liste avec leur id
@@ -225,24 +229,9 @@ class ImportEvents(BrowserView):
             # creation de l'evenement, on insere les proprietes de l'evenement selon la structure du fichier CSV de depart
 
             event_id = event_fields[0]
-
-            event_start_datestr = event_fields[4]
-            event_start_dateparts = getDateParts(event_start_datestr)
-            event_start = datetime(event_start_dateparts[0],
-                                   event_start_dateparts[1],
-                                   event_start_dateparts[2],
-                                   event_start_dateparts[3],
-                                   event_start_dateparts[4])
-
-            event_end_datestr = event_fields[5]
-            event_end_dateparts = getDateParts(event_end_datestr)
-            event_end = datetime(event_end_dateparts[0],
-                                   event_end_dateparts[1],
-                                   event_end_dateparts[2],
-                                   event_end_dateparts[3],
-                                   event_end_dateparts[4])
-
-            #print "%s, %s" % (event_start_str, event_end_str)
+            
+            event_start = convertCSVEntryToDatetimeObject(event_fields[4])
+            event_end = convertCSVEntryToDatetimeObject(event_fields[5])
 
             context.invokeFactory(type_name="Event",
                       id=event_id,
@@ -250,13 +239,10 @@ class ImportEvents(BrowserView):
                       description=event_fields[2],
                       location=event_fields[3],
 
-                      #startDate=event_fields[4],
-                      #endDate=event_fields[5],
-
                       start=event_start,
                       end=event_end,
 
-                      timezone="Europe/Vienna",
+                      timezone=DEFAULT_TIMEZONE,
 
                       text=event_fields[6],
                       subject=multisubject(event_fields[7]),
@@ -265,7 +251,8 @@ class ImportEvents(BrowserView):
                      # expirationDate=event_fields[9],
                      # creation_date=event_fields[10],
                      # modification_date=event_fields[11],
-                     # creators=event_fields[12]
+                     
+                      creators=(event_fields[12],)
                       )
             evt = context[event_id]
             evt.reindexObject()
