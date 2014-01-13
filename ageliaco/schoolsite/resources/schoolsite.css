@@ -96,6 +96,11 @@ padding-right: 0.05em;
 /*------------------------------------------------------------------- */
 /*------------------------------------------------------------------- */
 
+#portal-footer p {
+    display: none;
+}
+
+
 #portal-megafooter-wrapper {
     font-size: 70%;
     text-align: center;

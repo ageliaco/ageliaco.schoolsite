@@ -15,7 +15,7 @@
   <browser:page 
     for="*"
     name="import_events"
-    class=".views.ImportEvents"
+    class=".utils.ImportEvents"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
     />
@@ -39,13 +39,14 @@
     />
 
   <!-- Override the footer to insert our version of Sitemap / Megafooter -->
+  <!--
   <browser:viewlet
     name="plone.footer"
     manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
     class=".views.FooterViewlet"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="zope2.View"    
-    />
+    /> -->
 
 
 </configure>

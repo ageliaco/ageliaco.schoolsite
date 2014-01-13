@@ -103,7 +103,7 @@ SITEADMIN_CONTENT = {
   ],
 
   'HOMEPAGE_CHILDREN': [
-         ('footer', u'''Footer''', u'footer-title', 'Folder'),
+        # ('footer', u'''Footer''', u'footer-title', 'Folder'),
          ('vitrines', u'''Vitrines''', u'vitrines-title', 'Folder'),
          ('best-of', u'''Best of''', u'best-of-title', 'Folder'),
   ],

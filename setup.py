@@ -26,6 +26,7 @@ setup(name='ageliaco.schoolsite',
           'setuptools',
           'Products.CMFPlone',
           'plone.app.contenttypes[atrefs]',
+          'Products.Doormat',
           #'z3c.jbot', 
       ],
       extras_require={
