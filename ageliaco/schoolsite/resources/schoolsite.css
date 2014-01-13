@@ -92,15 +92,28 @@ padding-right: 0.05em;
 
 /*------------------------------------------------------------------- */
 /*------------------------------------------------------------------- */
-/* CSS POUR LE MEGAFOOTER */
+/* CSS POUR LE MEGAFOOTER - Upadte: We now use Products.Doormat */
 /*------------------------------------------------------------------- */
 /*------------------------------------------------------------------- */
 
-#portal-footer p {
+#portal-footer-wrapper {
+    margin:auto;
+    background-color: #cee1f0;
+    padding-bottom: 20px;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 1em;
+}
+
+#portal-footer {
     display: none;
 }
 
+#doormat-container {
+    background-color: transparent !important;
+}
 
+
+/*
 #portal-megafooter-wrapper {
     font-size: 70%;
     text-align: center;
@@ -127,6 +140,7 @@ display:inline-block;
 vertical-align:top;
 margin : 15px 90px 0 auto;
 }
+*/
 
 
 /*css pour les 4 colonnes des 4 entrées (prés, vie, adm, ped)*/

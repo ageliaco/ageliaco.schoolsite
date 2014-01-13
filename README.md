@@ -17,9 +17,5 @@ TODO
   * Impressum link on image in the header: Use Plone registry to store the impressum page URL 
     which is different for each school.
 
-- Re-work footer content implementation: Either simply use Products.Doormat or create "Site Administration" contents, 
-  such as those used to provide the footer blocks, introduce and use a Dexterity content type which fields 
-  are not searchable. Thus avoiding those to appear in search results.
-
 - Add tests to the package. [Near Term]
 
