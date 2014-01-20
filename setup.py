@@ -27,6 +27,8 @@ setup(name='ageliaco.schoolsite',
           'Products.CMFPlone',
           'plone.app.contenttypes[atrefs]',
           'Products.Doormat',
+          'collective.fontawesome',
+          #'collective.js.datatables',
           #'z3c.jbot', 
       ],
       extras_require={

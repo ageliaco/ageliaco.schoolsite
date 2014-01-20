@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<registry>
+  <records interface="ageliaco.schoolsite.interfaces.ISchoolSiteSettings">
+      <value key="impressum_page_url"></value>
+  </records>
+</registry>

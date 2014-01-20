@@ -1,6 +1,6 @@
-import logging
-
 # -*- coding: utf-8 -*-
+
+import logging
 
 from Products.CMFPlone.utils import _createObjectByType
 

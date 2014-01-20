@@ -131,3 +131,23 @@ HOMEPAGE_TEXT = u'''
 <h2>Bienvenue sur le site d'école basé sur Plone</h2>
 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
 '''
+
+
+LIENS_INSTITUTIONNELS = [
+                 ('''Le site du Département de l'Instruction Publique à Genève''', 
+                  'http://www.ge.ch/dip/', 
+                  'external-link'),
+                  
+                 ('''Le site de l'enseignement post-obligatoire''', 
+                  'http://www.geneve.ch/po/', 
+                  'external-link'),
+                  
+                 ('''Le site de la formation gymnasiale''', 
+                  'http://www.geneve.ch/formation_generale/maturite_gymnasiale.asp', 
+                  'external-link'),
+                  
+                 ('''Brochure "La maturité gymnasiale au Collège de Genève"''', 
+                  'http://www.ge.ch/formation_generale/doc/brochures/brochure_cdg.pdf', 
+                  'download'),
+                  
+              ]

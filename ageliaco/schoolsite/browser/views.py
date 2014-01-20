@@ -2,7 +2,8 @@
 from datetime import date
 from datetime import datetime 
 
-#from zope import component
+from zope.component import getUtility
+from plone.registry.interfaces import IRegistry
 
 from Products.Five.browser import BrowserView
 
@@ -13,6 +14,11 @@ from plone.app.layout.viewlets.common import ViewletBase
 
 from ageliaco.schoolsite.config import (
       LOCAL_GROUPS,
+      LIENS_INSTITUTIONNELS,
+)
+
+from ageliaco.schoolsite.interfaces import (
+      ISchoolSiteSettings,
 )
 
 
@@ -27,6 +33,12 @@ class HeaderViewlet(ViewletBase):
 
         site_url = self.portal_state.portal_url()
         self.site_url = site_url 
+
+        # Get Impressum URL (via portal_registry)
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(ISchoolSiteSettings)
+        self.impressum_page_url = settings.impressum_page_url
+        #print self.impressum_page_url
 
 
 # class FooterViewlet(ViewletBase):
@@ -49,6 +61,25 @@ class HeaderViewlet(ViewletBase):
 
 ## Views        
 
+class SchoolSiteLinks(BrowserView):
+    # View for the "Liens institutionnels" page
+    
+    def links(self):
+        return LIENS_INSTITUTIONNELS 
+        
+#     def link_icon(self, category):
+#         icon_type = 'external-link'
+#         if category == 'Brochure':
+#             icon_type = 'book'
+#    
+#         return icon_type
+
+    def otherLinksFolders(self):
+        return self.context.getFolderContents({'portal_type': 'Folder'})
+
+        
+        
+        
 class QuickAddUsersGroups(BrowserView):
     """
     """

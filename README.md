@@ -9,13 +9,12 @@ Dependencies
 ------------
 
 - plone.app.contenttypes.
+- plone.app.widgets
+- Products.Doormat
+- collective.fontawesome
 
 TODO
 ----
-
-- Specific to DIP
-  * Impressum link on image in the header: Use Plone registry to store the impressum page URL 
-    which is different for each school.
 
 - Add tests to the package. [Near Term]
 

@@ -16,3 +16,9 @@ class IAgeliacoSchoolSiteLayer(Interface):
     """
 
 
+class ISchoolSiteSettings(Interface):
+    """SchoolSite settings"""
+
+    impressum_page_url = schema.URI(
+        title=_(u"Impressum Page URL"),
+        )
