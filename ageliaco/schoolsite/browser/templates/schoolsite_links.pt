@@ -17,8 +17,7 @@
 
 <metal:block fill-slot="content-core" >
 
-    <table tal:condition=""
-           tal:define="institution_links view/showInstitutionLinks;
+    <table tal:define="institution_links view/showInstitutionLinks;
                        contextual_links view/contextualLinks" >
 
         <tr tal:repeat="link institution_links" >

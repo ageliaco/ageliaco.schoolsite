@@ -77,6 +77,14 @@
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="zope2.View"    
     /> -->
+    
+<browser:menuItem
+  for="plone.app.contenttypes.interfaces.IFolder"
+  menu="plone_displayviews"
+  title="Links view"
+  action="@@links"
+  description="Special view for a links folder"
+  />
 
 
 </configure>
