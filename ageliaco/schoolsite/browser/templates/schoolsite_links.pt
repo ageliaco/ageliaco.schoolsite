@@ -15,17 +15,13 @@
 
 <body>
 
-<metal:main fill-slot="main" >
+<metal:block fill-slot="content-core" >
 
+    <table tal:condition=""
+           tal:define="institution_links view/showInstitutionLinks;
+                       contextual_links view/contextualLinks" >
 
-    <div tal:replace="structure provider:plone.abovecontenttitle" />
-    
-    <h1 class="documentFirstHeading" >Liens institutionnels</h1>
-
-    <table tal:define="links view/links;
-                       morelinks python:context.getFolderContents({'portal_type': 'Link'})" >
-
-        <tr tal:repeat="link links" >
+        <tr tal:repeat="link institution_links" >
             <tal:item define="link_title python:link[0];
                               link_url python:link[1];
                               link_icon python:link[2];" >
@@ -38,7 +34,7 @@
             </tal:item>              
         </tr>
 
-        <tr tal:repeat="link morelinks" >
+        <tr tal:repeat="link contextual_links" >
             <tal:item define="link_title link/Title;
                               link_url link/getRemoteUrl;" >
               <td>
@@ -51,8 +47,8 @@
         </tr>
     </table>
 
-    <tal:block define="other_folders view/otherLinksFolders" >
-      <tal:block repeat="folder other_folders" >
+    <tal:block define="subfolders view/subFolders" >
+      <tal:block repeat="folder subfolders" >
       
         <tal:folderlinks define="folderObj folder/getObject;
                                  folderlinks python:folderObj.getFolderContents({'portal_type': 'Link'})" >
@@ -76,7 +72,7 @@
       </tal:block>  
     </tal:block> 
   
-</metal:main>
+</metal:block>
 
 </body>
 </html>

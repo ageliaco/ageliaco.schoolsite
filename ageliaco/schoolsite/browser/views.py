@@ -64,17 +64,19 @@ class HeaderViewlet(ViewletBase):
 class SchoolSiteLinks(BrowserView):
     # View for the "Liens institutionnels" page
     
-    def links(self):
-        return LIENS_INSTITUTIONNELS 
+    def showInstitutionLinks(self):
+        links = []
+        context = self.context
         
-#     def link_icon(self, category):
-#         icon_type = 'external-link'
-#         if category == 'Brochure':
-#             icon_type = 'book'
-#    
-#         return icon_type
-
-    def otherLinksFolders(self):
+        if context.hasProperty('liens_institutionnels'):
+            links = LIENS_INSTITUTIONNELS
+        return links
+        
+    def contextualLinks(self):
+        return self.context.getFolderContents({'portal_type': 'Link'})
+        
+        
+    def subFolders(self):
         return self.context.getFolderContents({'portal_type': 'Folder'})
 
         

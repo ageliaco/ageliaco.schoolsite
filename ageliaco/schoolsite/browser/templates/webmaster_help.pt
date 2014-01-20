@@ -118,35 +118,6 @@
 
       <table width="100%" class="listing" >
 
-        <tal:comment replace="nothing" >
-        <tr tal:define="actionDone python: False" >
-              <td width="30%" >
-                            <a href="" 
-                               title=""
-                               tal:attributes="href string:${portal_url}/@@import_site_links" > 
-                               <span class="icon-external-link-sign" ></span>
-                               Liens institutionnels
-                            </a>
-              </td>
-
-              <td width="70%" >
-                 Ajout des liens institutionnels.
-
-                 <div tal:condition="actionDone" >
-                  <span style="color: orange" class="icon-ok-circle" >
-                    L'importation a été effectué.
-                  </span>
-                  <span style="color: #336688" class="icon-link" >
-                            <a href="" 
-                               tal:attributes="href string:${portal_url}/xxx" > 
-                               <em>Voir les XXX.</em>
-                            </a>
-                  </span>
-                 </div> 
-              </td>
-        </tr>
-        </tal:comment>
-
         <tr tal:define="actionDone python: False" >
               <td width="30%" >
                             <a href="" 
@@ -162,8 +133,6 @@
                    Ajout des événements à partir d'un fichier CSV. -- Se référer à la documentation pour cette manip.
                  </span>
               </td>
-              
-
         </tr>
 
       </table>

@@ -85,49 +85,51 @@ class ImportDoormatContent(BrowserView):
             return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
 
 
-# 2) BrowserView class for importing Links for Presentation / Liens-Institutionnels (the common part)
+# THE IMPORTING PART IS CURRENTLY REMOVED
+# We are rethinking the whole thing!
+## BrowserView class for importing Links for Presentation / Liens-Institutionnels (the common part)
 
-class ImportSiteLinks(BrowserView):
-    """
-    """
+# class ImportSiteLinks(BrowserView):
+#     """
+#     """
+# 
+#     def __call__(self):
+# 
+#         context = self.context
+# 
+#         if 'presentation' in context.objectIds():
+#             about_folder = context['presentation']
+# 
+#             if not 'liens-institutionnels' in about_folder.objectIds():
+#                 about_folder.invokeFactory(type_name="Folder",
+#                                            id='liens-institutionnels',
+#                                            title='Liens institutionnels')
+#             
+#             links_folder = about_folder['liens-institutionnels']
+#             
+#             # Ajouter Link --> Relatif à l'école sur le site du DIP
+#             links_folder.invokeFactory(type_name="Link",
+#                                        id='infos-relatives-sur-site-du-dip',
+#                                        title='''Infos relatives à [mon école] sur le site du DIP''',
+#                                        remoteUrl='http://url-a-completer.ch')
+#                                        
+#             # Ajouter les 2 sous-dossiers Règlements..., Plans d'études...
+#             links_folder.invokeFactory(type_name="Folder",
+#                                        id='reglements',
+#                                        title='''Règlements''')
+# 
+#             links_folder.invokeFactory(type_name="Folder",
+#                                        id='plans-etudes',
+#                                        title='''Plans d'etudes...''')
+#                                            
+#             # Affecter un set du layout sur la vue 'schoolsite_links' 
+#             links_folder.setLayout('schoolsite_links')
+# 
+#             return context.REQUEST.response.redirect(links_folder.absolute_url())
+#             #return 1
 
-    def __call__(self):
 
-        context = self.context
-
-        if 'presentation' in context.objectIds():
-            about_folder = context['presentation']
-
-            if not 'liens-institutionnels' in about_folder.objectIds():
-                about_folder.invokeFactory(type_name="Folder",
-                                           id='liens-institutionnels',
-                                           title='Liens institutionnels')
-            
-            links_folder = about_folder['liens-institutionnels']
-            
-            # Ajouter Link --> Relatif à l'école sur le site du DIP
-            links_folder.invokeFactory(type_name="Link",
-                                       id='infos-relatives-sur-site-du-dip',
-                                       title='''Infos relatives à [mon école] sur le site du DIP''',
-                                       remoteUrl='http://url-a-completer.ch')
-                                       
-            # Ajouter les 2 sous-dossiers Règlements..., Plans d'études...
-            links_folder.invokeFactory(type_name="Folder",
-                                       id='reglements',
-                                       title='''Règlements''')
-
-            links_folder.invokeFactory(type_name="Folder",
-                                       id='plans-etudes',
-                                       title='''Plans d'etudes...''')
-                                           
-            # Affecter un set du layout sur la vue 'schoolsite_links' 
-            links_folder.setLayout('schoolsite_links')
-
-            return context.REQUEST.response.redirect(links_folder.absolute_url())
-            #return 1
-
-
-# 3) BrowserView class for importing Events
+# 2) BrowserView class for importing Events
             
 # Functions and constants for the import of events
 
@@ -172,7 +174,7 @@ def convertCSVEntryToDatetimeObject(entry):
 DEFAULT_TIMEZONE = "Europe/Zurich"
 CSV_FILE_NAME = 'evenements.csv'
 
-# BrowserView class for importing contents
+# BrowserView class
 
 class ImportEvents(BrowserView):
     """
@@ -241,7 +243,7 @@ class ImportEvents(BrowserView):
         return "DONE"
 
 
-# 4) BrowserView class for importing initial users and groups
+# 3) BrowserView class for importing initial users and groups
         
 class QuickAddUsersGroups(BrowserView):
     """
