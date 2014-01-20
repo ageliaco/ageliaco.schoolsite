@@ -13,28 +13,33 @@ from Products.CMFCore.utils import getToolByName
 
 from plone.app.textfield.value import RichTextValue
 
+from ageliaco.schoolsite.config import (
+      LOCAL_GROUPS,
+)
+
+
 ## Here we define Views for administrative tasks        
 
 
 # 1) BrowserView class for importing Footer/Doormat initial content
 
 FOOTER_TEXTS_CONFIG = {
-'column-1': {
+'schoolsite-col-1': {
   'title': 'Administration',
   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Administration</a></h3>
 <p style="text-align: center; "><span class="discreet">Infos n&eacute;cessaires et/ou utiles</span></p>'''
 },
-'column-2': {
+'schoolsite-col-2': {
   'title': '''Vie Ecole''',
   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Vie de l'&eacute;cole</a></h3>
 <p style="text-align: center; "><span class="discreet">Ce qui fait - aussi - l'&eacute;cole!</span></p>'''
 },
-'column-3': {
+'schoolsite-col-3': {
   'title': 'Pedagogie',
   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">P&eacute;dagogie</a></h3>
 <p style="text-align: center; "><span class="discreet">Enseigner et apprendre</span></p>'''
 },
-'column-4': {
+'schoolsite-col-4': {
   'title': 'Presentation',
   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Pr&eacute;sentation</a></h3>
 <p style="text-align: center; "><span class="discreet">Tout savoir sur le coll&egrave;ge</span></p>'''
@@ -56,7 +61,7 @@ class ImportDoormatContent(BrowserView):
 
             dm.setShowTitle(False)
 
-            for col_id in ['column-1','column-2','column-3','column-4']:
+            for col_id in ['schoolsite-col-1','schoolsite-col-2','schoolsite-col-3','schoolsite-col-4']:
                 oid = dm.invokeFactory('DoormatColumn', col_id)
                 column = dm[oid]
                 column.setTitle('Colonne %s' % col_id)
@@ -77,7 +82,7 @@ class ImportDoormatContent(BrowserView):
                 doc.text = RichTextValue(FOOTER_TEXTS_CONFIG[col_id]['text'], 'text/html', 'text/html')
                 doc.reindexObject()
             
-            return context.REQUEST.response.redirect(context.absolute_url())
+            return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
 
 
 # 2) BrowserView class for importing Links for Presentation / Liens-Institutionnels (the common part)
@@ -120,6 +125,7 @@ class ImportSiteLinks(BrowserView):
 
             return context.REQUEST.response.redirect(links_folder.absolute_url())
             #return 1
+
 
 # 3) BrowserView class for importing Events
             
@@ -233,3 +239,68 @@ class ImportEvents(BrowserView):
             evt.reindexObject()
  
         return "DONE"
+
+
+# 4) BrowserView class for importing initial users and groups
+        
+class QuickAddUsersGroups(BrowserView):
+    """
+    """
+
+    def __call__(self):
+#         if not self.request.get('do-it-really'):
+#             # just a guard for accidental calling
+#             return '\n'.join([
+#                 'you must provide a "do-it-really" in order to flush!',
+#             ])
+
+        context = self.context
+        
+        result = 'ADDING INITIAL USERS AND GROUPS FOR THE SCHOOLSITE\n\n'
+
+        uf = getToolByName(context, 'acl_users')
+        gtool = getToolByName(context, 'portal_groups')
+        regtool = getToolByName(context, 'portal_registration')
+    
+        # Initial Site Admin
+        properties = {
+                 'username': 'siteadmin',
+                 'fullname': u"Site Admin",
+                 'email': 'siteadmin@schoolsite.com',
+               }
+        try:
+            member = regtool.addMember('siteadmin', 'admin', properties=properties)
+            #gtool.addPrincipalToGroup('siteadmin', 'Site Administrators')
+            gtool.addPrincipalToGroup('siteadmin', 'Administrators')
+            result += '''Added user 'siteadmin' and affected it in 'Administrors' group\n'''
+        except ValueError, e:
+            # Give user visual feedback what went wrong
+            #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
+            result += '''Error: Could not create the admin user or add it to the group: %s\n''' % e 
+            
+        # Useful initial groups and their related test users
+        for groupid, memberid in LOCAL_GROUPS: 
+            if not uf.searchGroups(id=groupid):
+                gtool.addGroup(groupid, title=groupid,
+                               roles=[])
+                result += 'Added group: %s\n' % groupid
+                       
+            # Setup a test user as a member of each group
+            member_properties = {
+                     'username': memberid,
+                     'fullname': memberid,
+                     'email': memberid + '@schoolsite.com',
+                   }
+            try:
+                # addMember() returns MemberData object
+                member = regtool.addMember(memberid, memberid, properties=member_properties)
+                result += 'Added member: %s\n' % member.getUserName()
+                gtool.addPrincipalToGroup(memberid, groupid)
+                result += '--> Added to the group %s\n' % groupid
+            except ValueError, e:
+                # Give user visual feedback what went wrong
+                #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
+                result += '''Error: Could not create the user '%s' or add it to the group: %s\n''' % (memberid, e)
+                
+        print result
+        return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')

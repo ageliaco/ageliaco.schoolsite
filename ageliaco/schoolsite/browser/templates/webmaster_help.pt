@@ -6,8 +6,7 @@
 
 <head>
     <metal:block fill-slot="top_slot"
-                 tal:define="dummy python:request.set('disable_border',1);
-                             disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+                 tal:define="dummy python:request.set('disable_border',1);" />
 </head>
 
 <body>
@@ -80,7 +79,7 @@
               
         </tr>
 
-        <tr tal:define="actionDone python: True" >
+        <tr tal:define="actionDone python: False" >
               <td width="30%" >
                             <a href="" 
                                tal:condition="not: actionDone"
@@ -172,10 +171,12 @@
       <h2> Documentation</h2>
 
       <ul style="list-style: none" >
-          <li class="icon-li icon-link" >
+          <li class="icon-li icon-external-link" 
+              tal:define="doc_site_url view/documentationSiteURL | nothing"
+              tal:condition="doc_site_url" >
                             <a href="" 
-                               tal:attributes="href string:${portal_url}/siteadministration/aide-et-documentation" > 
-                               Aide et documentation "Kit Ecole"
+                               tal:attributes="href doc_site_url" > 
+                               Documentation "Kit Ecole"
                             </a>
           </li>
           <li class="icon-li icon-external-link" >

@@ -4,14 +4,25 @@
   xmlns:plone="http://namespaces.plone.org/plone"
   i18n_domain="ageliaco.schoolsite">
 
+  <!-- Call this from the Welmaster Help page -->
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="quickadd-users-groups"
-    class=".views.QuickAddUsersGroups"
+    class=".utils.QuickAddUsersGroups"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    permission="cmf.ManagePortal"
+    />
+
+  <!-- Call this from the Welmaster Help page -->
+  <browser:page 
+    for="plone.app.layout.navigation.interfaces.INavigationRoot"
+    name="import_doormat_content"
+    class=".utils.ImportDoormatContent"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
     />
     
+  <!-- Call this in the context where you want to add the events -->
   <browser:page 
     for="*"
     name="import_events"
@@ -20,14 +31,7 @@
     permission="cmf.ManagePortal"
     />
 
-  <browser:page 
-    for="plone.app.layout.navigation.interfaces.INavigationRoot"
-    name="import_doormat_content"
-    class=".utils.ImportDoormatContent"
-    layer="..interfaces.IAgeliacoSchoolSiteLayer"
-    permission="cmf.ManagePortal"
-    />
-
+  <!-- ??? -->
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="import_site_links"
