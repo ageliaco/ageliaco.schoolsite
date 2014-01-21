@@ -4,11 +4,13 @@
   xmlns:plone="http://namespaces.plone.org/plone"
   i18n_domain="ageliaco.schoolsite">
 
+  <!-- ADMIN ACTIONS -->
+  
   <!-- Call this from the Welmaster Help page -->
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="quickadd-users-groups"
-    class=".utils.QuickAddUsersGroups"
+    class=".actions.QuickAddUsersGroups"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
     />
@@ -17,7 +19,16 @@
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="import_doormat_content"
-    class=".utils.ImportDoormatContent"
+    class=".actions.ImportDoormatContent"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    permission="cmf.ManagePortal"
+    />
+
+  <!-- Call this from the Welmaster Help page -->
+  <browser:page 
+    for="plone.app.layout.navigation.interfaces.INavigationRoot"
+    name="import_liens_institutionnels"
+    class=".actions.ImportLiensInstitutionnels"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
     />
@@ -26,21 +37,14 @@
   <browser:page 
     for="*"
     name="import_events"
-    class=".utils.ImportEvents"
+    class=".actions.ImportEvents"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
     />
 
-  <!-- 
-  <browser:page 
-    for="plone.app.layout.navigation.interfaces.INavigationRoot"
-    name="import_site_links"
-    class=".utils.ImportSiteLinks"
-    layer="..interfaces.IAgeliacoSchoolSiteLayer"
-    permission="cmf.ManagePortal"
-    />
-  -->
   
+  <!-- PRESENTATION / PAGES -->
+
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="webmaster-help"
@@ -58,6 +62,9 @@
     template="templates/schoolsite_links.pt"
     permission="zope2.View"
     />
+
+
+  <!-- PRESENTATION / VIEWLETS -->
     
   <!-- Override the header to insert EDU/EEL bandeau -->
   <browser:viewlet
@@ -68,16 +75,9 @@
     permission="zope2.View"
     />
 
-  <!-- Override the footer to insert our version of Sitemap / Megafooter -->
-  <!--
-  <browser:viewlet
-    name="plone.footer"
-    manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-    class=".views.FooterViewlet"
-    layer="..interfaces.IAgeliacoSchoolSiteLayer"
-    permission="zope2.View"    
-    /> -->
-    
+
+  <!-- MENU / DISPLAY SETTINGS -->
+
 <browser:menuItem
   for="plone.app.contenttypes.interfaces.IFolder"
   menu="plone_displayviews"

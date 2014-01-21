@@ -10,15 +10,29 @@
 </head>
 
 <body>
-
+                    
 <metal:main fill-slot="main" >
 
-    <h1 class="documentFirstHeading" >Webmaster Help</h1>
+    <h1 class="documentFirstHeading" >Aide & Dashboard du Webmaster</h1>
 
     <div class="documentDescription" >
+      Cette page vous donne accès aux principaux panneaux d'options et scripts pour la gestion 
+      de votre site d'école.
     </div>
 
     <div id="content-core">
+
+    <div style="text-align: center" 
+         tal:define="doc_site_url view/documentationSiteURL | nothing"
+         tal:condition="doc_site_url" > 
+         <a class="btn btn-lg" href="#" target="_blank"
+            tal:attributes="href doc_site_url" >
+           <span class="icon icon-book" > 
+              Accéder à la documentation
+           </span>
+         </a>
+    </div>
+      
 
       <h2> Options du site </h2>
 
@@ -94,7 +108,7 @@
               </td>
 
               <td width="70%" >
-                 Ajout des éléments de paramétrage du footer.
+                 Ajout et paramétrage du footer.
                  
                  <div tal:condition="actionDone" >
                   <span style="color: orange" class="icon-ok-circle" >
@@ -118,6 +132,37 @@
 
       <table width="100%" class="listing" >
 
+        <tr tal:define="actionDone view/isLiensInstitutionnelsFolderAdded" >
+              <td width="30%" >
+                            <a href="" 
+                               tal:condition="not: actionDone"
+                               tal:attributes="href string:${portal_url}/@@import_liens_institutionnels" > 
+                               <span class="icon-sitemap" ></span>
+                               Liens institutionnels
+                            </a>
+                            <span tal:condition="actionDone" style="color: orange" > 
+                               <span class="icon-sitemap" ></span>
+                               Liens institutionnels
+                            </span>
+              </td>
+
+              <td width="70%" >
+                 Ajout et paramétrage de la page "Liens Institutionnels".
+                 
+                 <div tal:condition="actionDone" >
+                  <span style="color: orange" class="icon-ok-circle" >
+                    L'importation a été effectué.
+                  </span>
+                  <span style="color: #336688" class="icon-link" >
+                            <a href="" 
+                               tal:attributes="href string:${portal_url}/presentation/liens-institutionnels" > 
+                               <em>Voir la page ajoutée.</em>
+                            </a>
+                  </span>
+                 </div> 
+              </td>
+        </tr>
+
         <tr tal:define="actionDone python: False" >
               <td width="30%" >
                             <a href="" 
@@ -136,26 +181,6 @@
         </tr>
 
       </table>
-
-      <h2> Documentation</h2>
-
-      <ul style="list-style: none" >
-          <li class="icon-li icon-external-link" 
-              tal:define="doc_site_url view/documentationSiteURL | nothing"
-              tal:condition="doc_site_url" >
-                            <a href="" 
-                               tal:attributes="href doc_site_url" > 
-                               Documentation "Kit Ecole"
-                            </a>
-          </li>
-          <li class="icon-li icon-external-link" >
-                            <a href="http://plone.fr/documentation/documentation-integrateur/ploneformgen/index.html" > 
-                               Documentation de PloneFormGen
-                            </a>
-          </li>
-      </ul>
-
-
 
     </div>
 </metal:main>

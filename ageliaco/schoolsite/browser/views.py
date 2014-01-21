@@ -68,7 +68,7 @@ class SchoolSiteLinks(BrowserView):
         links = []
         context = self.context
         
-        if context.hasProperty('liens_institutionnels'):
+        if context.getId() == 'liens-institutionnels':
             links = LIENS_INSTITUTIONNELS
         return links
         
@@ -88,6 +88,18 @@ class WebmasterHelp(BrowserView):
 
     def documentationSiteURL(self):
         return DOCUMENTATION_SITE_URL
+
+
+    def isLiensInstitutionnelsFolderAdded(self):
+
+        context = self.context
+
+        if not 'presentation' in context.objectIds('Dexterity Container'):  
+            return False
+        about_folder = context.presentation
+        if not 'liens-institutionnels' in about_folder.objectIds('Dexterity Container'):
+            return False
+        return True
             
             
     def isInitialAdminUserAdded(self):
