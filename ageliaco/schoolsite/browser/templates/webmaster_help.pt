@@ -93,7 +93,7 @@
               
         </tr>
 
-        <tr tal:define="actionDone python: False" >
+        <tr tal:define="actionDone view/isFooterContentsAdded" >
               <td width="30%" >
                             <a href="" 
                                tal:condition="not: actionDone"

@@ -17,6 +17,5 @@ TODO
 ----
 
 - Webmaster Help interface: Make sure we show error messages returned by the utils scripts.
-- Webmaster Help interface: Try to merge this with Plone's dashboard by users with Manager rights.
 - A bit of cleanup and add tests.
 
