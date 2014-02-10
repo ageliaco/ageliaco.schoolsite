@@ -25,13 +25,14 @@
     />
 
   <!-- Call this from the Welmaster Help page -->
+  <!--
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="import_liens_institutionnels"
     class=".actions.ImportLiensInstitutionnels"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
-    />
+    /> -->
     
   <!-- Call this in the context where you want to add the events -->
   <browser:page 

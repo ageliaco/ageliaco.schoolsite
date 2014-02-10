@@ -87,35 +87,33 @@ class ImportDoormatContent(BrowserView):
 
 # 2) BrowserView class for importing the /presentation/liens-institutionnels links folder
 
-class ImportLiensInstitutionnels(BrowserView):
-    """
-    """
+# def addLinksFolder(id, title, container):
+#     if not id in container.objectIds():
+#         container.invokeFactory(type_name="Folder",
+#                                 id=id,
+#                                 title=title)
+# 
+#     # Set the corresponding layout
+#     links_folder = container[id]
+#     links_folder.setLayout('links')
 
-    def __call__(self):
 
-        context = self.context
-
-        if 'presentation' in context.objectIds():
-            about_folder = context['presentation']
-
-            if not 'liens-institutionnels' in about_folder.objectIds():
-                about_folder.invokeFactory(type_name="Folder",
-                                           id='liens-institutionnels',
-                                           title='Liens institutionnels')
-            
-            links_folder = about_folder['liens-institutionnels']
-            
-            # Ajouter Link --> Relatif à l'école sur le site du DIP
-            if not 'infos-relatives-sur-site-du-dip' in links_folder.objectIds():
-                links_folder.invokeFactory(type_name="Link",
-                                           id='infos-relatives-sur-site-du-dip',
-                                           title='''Infos relatives à [mon école] sur le site du DIP''',
-                                           remoteUrl='http://url-a-completer.ch')
-                                                                                  
-            # Set the corresponding layout
-            links_folder.setLayout('links')
-
-        return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
+# class ImportLiensInstitutionnels(BrowserView):
+#     """
+#     """
+# 
+#     def __call__(self):
+# 
+#         context = self.context
+# 
+#         # Add liens-institutionnels
+#         if 'presentation' in context.objectIds():
+#             about_folder = context['presentation']
+#             
+#             addLinksFolder('liens-institutionnels', 'Liens institutionnels', about_folder)
+# 
+# 
+#         return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
             
 
 
@@ -176,6 +174,9 @@ class ImportEvents(BrowserView):
         # recupere chaque ligne du fichier voulu (ici 'evenements')
 
         events_data_file = context[CSV_FILE_NAME]
+        
+        #return dir(events_data_file.data)
+        
         events = events_data_file.data.split('\n')
         nb_lines=len(events)
 

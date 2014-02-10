@@ -132,6 +132,7 @@
 
       <table width="100%" class="listing" >
 
+        <!--
         <tr tal:define="actionDone view/isLiensInstitutionnelsFolderAdded" >
               <td width="30%" >
                             <a href="" 
@@ -162,7 +163,8 @@
                  </div> 
               </td>
         </tr>
-
+        -->
+        
         <tr tal:define="actionDone python: False" >
               <td width="30%" >
                             <a href="" 

@@ -134,21 +134,21 @@ HOMEPAGE_TEXT = u'''
 
 DOCUMENTATION_SITE_URL = "http://zopedev.edutonic.net/zope4/schoolsite-doc"
 
-LIENS_INSTITUTIONNELS = [
-                 ('''Le site du Département de l'Instruction Publique à Genève''', 
-                  'http://www.ge.ch/dip/', 
-                  'external-link'),
-                  
-                 ('''Le site de l'enseignement post-obligatoire''', 
-                  'http://www.geneve.ch/po/', 
-                  'external-link'),
-                  
-                 ('''Le site de la formation gymnasiale''', 
-                  'http://www.geneve.ch/formation_generale/maturite_gymnasiale.asp', 
-                  'external-link'),
-                  
-                 ('''Brochure "La maturité gymnasiale au Collège de Genève"''', 
-                  'http://www.ge.ch/formation_generale/doc/brochures/brochure_cdg.pdf', 
-                  'download'),
-                  
-              ]
+# LIENS_INSTITUTIONNELS = [
+#                  ('''Le site du Département de l'Instruction Publique à Genève''', 
+#                   'http://www.ge.ch/dip/', 
+#                   'external-link'),
+#                   
+#                  ('''Le site de l'enseignement post-obligatoire''', 
+#                   'http://www.geneve.ch/po/', 
+#                   'external-link'),
+#                   
+#                  ('''Le site de la formation gymnasiale''', 
+#                   'http://www.geneve.ch/formation_generale/maturite_gymnasiale.asp', 
+#                   'external-link'),
+#                   
+#                  ('''Brochure "La maturité gymnasiale au Collège de Genève"''', 
+#                   'http://www.ge.ch/formation_generale/doc/brochures/brochure_cdg.pdf', 
+#                   'download'),
+#                   
+#               ]

@@ -17,36 +17,21 @@
 
 <metal:block fill-slot="content-core" >
 
-    <table tal:define="institution_links view/showInstitutionLinks;
-                       contextual_links view/contextualLinks" >
+    <ul style="list-style: none"
+        tal:define="contextual_links view/contextualLinks" >
 
-        <tr tal:repeat="link institution_links" >
-            <tal:item define="link_title python:link[0];
-                              link_url python:link[1];
-                              link_icon python:link[2];" >
-              <td>
-                 <a href="" tal:attributes="href link_url" >
-                   <span tal:attributes="class python:'icon-' + link_icon" ></span>
-                   <span tal:content="link_title" />
-                 </a>
-              </td>
-            </tal:item>              
-        </tr>
-
-        <tr tal:repeat="link contextual_links" >
+        <li tal:repeat="link contextual_links" >
+            <i class="icon-external-link" ></i>
             <tal:item define="link_title link/Title;
                               link_url link/getRemoteUrl;" >
-              <td>
                  <a href="" tal:attributes="href link_url" >
-                   <span class="icon-external-link" ></span>
-                   <span tal:content="link_title" />
+                    <span tal:content="link_title" />
                  </a>
-              </td>
             </tal:item>              
-        </tr>
-    </table>
+        </li>
+    </ul>
 
-    <tal:block define="subfolders view/subFolders" >
+    <!-- tal:block define="subfolders view/subFolders" >
       <tal:block repeat="folder subfolders" >
       
         <tal:folderlinks define="folderObj folder/getObject;
@@ -69,7 +54,7 @@
         </tal:folderlinks>
         
       </tal:block>  
-    </tal:block> 
+    </tal:block --> 
   
 </metal:block>
 

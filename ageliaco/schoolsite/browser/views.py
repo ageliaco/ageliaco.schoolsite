@@ -13,9 +13,14 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 
 from ageliaco.schoolsite.config import (
-      LIENS_INSTITUTIONNELS,
       DOCUMENTATION_SITE_URL,
 )
+
+#from ageliaco.schoolsite.links_config import (
+#      INSTITUTIONNELS,
+#      REGLEMENTS,
+#      PLANS_ETUDES_PROGRAMMES,
+#)
 
 from ageliaco.schoolsite.interfaces import (
       ISchoolSiteSettings,
@@ -62,22 +67,22 @@ class HeaderViewlet(ViewletBase):
 ## Views        
 
 class SchoolSiteLinks(BrowserView):
-    # View for the "Liens institutionnels" page
+    # View for the links collections. One of the use cases is for the "Liens institutionnels" page.
     
-    def showInstitutionLinks(self):
-        links = []
-        context = self.context
-        
-        if context.getId() == 'liens-institutionnels':
-            links = LIENS_INSTITUTIONNELS
-        return links
+#     def showInstitutionLinks(self):
+#         links = []
+#         context = self.context
+#         
+#         if context.getId() == 'liens-institutionnels':
+#             links = INSTITUTIONNELS['commun']
+#         return links
         
     def contextualLinks(self):
         return self.context.getFolderContents({'portal_type': 'Link'})
         
         
-    def subFolders(self):
-        return self.context.getFolderContents({'portal_type': 'Folder'})
+    #def subFolders(self):
+    #    return self.context.getFolderContents({'portal_type': 'Folder'})
 
         
 class WebmasterHelp(BrowserView):
@@ -102,16 +107,16 @@ class WebmasterHelp(BrowserView):
         return True
 
 
-    def isLiensInstitutionnelsFolderAdded(self):
-
-        context = self.context
-
-        if not 'presentation' in context.objectIds('Dexterity Container'):  
-            return False
-        about_folder = context.presentation
-        if not 'liens-institutionnels' in about_folder.objectIds('Dexterity Container'):
-            return False
-        return True
+#     def isLiensInstitutionnelsFolderAdded(self):
+# 
+#         context = self.context
+# 
+#         if not 'presentation' in context.objectIds('Dexterity Container'):  
+#             return False
+#         about_folder = context.presentation
+#         if not 'liens-institutionnels' in about_folder.objectIds('Dexterity Container'):
+#             return False
+#         return True
             
             
     def isInitialAdminUserAdded(self):
