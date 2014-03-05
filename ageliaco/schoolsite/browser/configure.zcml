@@ -64,6 +64,24 @@
     permission="zope2.View"
     />
 
+  <browser:page 
+    for="*"
+    name="full_width_slider"
+    class=".views.FullWidthSlider"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    template="templates/full_width_slider.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page 
+    for="*"
+    name="main_template_full_width"
+    class=".views.MainTemplateFullWidth"
+    layer="..interfaces.IAgeliacoSchoolSiteLayer"
+    template="templates/main_template_full_width.pt"
+    permission="zope2.View"
+    />
+
 
   <!-- PRESENTATION / VIEWLETS -->
     

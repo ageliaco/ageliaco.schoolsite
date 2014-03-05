@@ -295,5 +295,5 @@ class QuickAddUsersGroups(BrowserView):
                 #IStatusMessage(request).addStatusMessage(_(u"Could not create the user:") + unicode(e), "error")
                 result += '''Error: Could not create the user '%s' or add it to the group: %s\n''' % (memberid, e)
                 
-        print result
+        #print result
         return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')

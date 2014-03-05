@@ -46,25 +46,19 @@ class HeaderViewlet(ViewletBase):
         #print self.impressum_page_url
 
 
-# class FooterViewlet(ViewletBase):
-#     index = ViewPageTemplateFile('templates/footer.pt')
-# 
-#     def update(self):
-#         super(FooterViewlet, self).update()
-#         self.year = date.today().year
-# 
-#         portal = self.portal_state.portal()
-#         sitemap_setting_container = portal.siteadministration.homepage.footer
-#         filter = {'portal_type':['Document'], 'review_state':['published']}                                                                                    
-#         sitemap_setting_items = sitemap_setting_container.getFolderContents(contentFilter = filter)
-#         self.sitemap_setting_items = sitemap_setting_items
-
-
-
-
-
 
 ## Views        
+
+class MainTemplateFullWidth(BrowserView):
+    
+    pass      
+
+
+class FullWidthSlider(BrowserView):
+    
+    pass      
+
+
 
 class SchoolSiteLinks(BrowserView):
     # View for the links collections. One of the use cases is for the "Liens institutionnels" page.

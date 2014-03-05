@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template_full_width/macros/master"
+      i18n:domain="plone">
+
+<body>
+<metal:content fill-slot="content">
+
+  <div id="slider-container">
+    <div id="slider">
+
+      <!-- LA VARIABLE CONTEXT PERMET D'ATTRAPER QQCH QUI EST AU MEME NIVEAU,
+           DANS L'API DE PLONE getFolderContents VA RECUPERER TOUS LES CONTENUS PRESENTS DANS LE DOSSIER, 
+           ET ON PEUT Y LIRE DES INFOS SUR DES PROPRIETES QUI Y SONT ATTACHEES 
+           ON DEFINIT LE REPERTOIRE DE BASE COMME "INFO" 
+      -->
+
+      <tal:block tal:condition="python: 'info' in context.objectIds(['Dexterity Item', 'Dexterity Container'])" >
+         <tal:block tal:define="pages python: context.info.getFolderContents()" >
+         <ul>
+           <!-- début de la boucle LI -->
+           <li tal:repeat="page pages">
+             <div class="ecran-slide"
+                  tal:define="isDocument python: page.portal_type=='Document';
+                              isImage python: page.portal_type=='Image'" >
+               <h1 class="documentFirstHeading" 
+                   tal:content="page/Title"
+                   tal:condition="isDocument" />
+
+               <div class="slide-ecran-content" 
+                    tal:define="pageObj page/getObject" 
+                    tal:content="structure pageObj/text/output"
+                    tal:condition="isDocument" />
+
+               <img class="slide-ecran-image" 
+                    tal:condition="isImage"
+                    tal:attributes="src page/getURL" />
+             </div>
+           </li>
+           <!-- fin de la boucle -->
+         </ul>
+         </tal:block>
+      </tal:block>
+
+    </div> <!-- fin du div slider -->
+  </div> <!-- fin du div slider-container -->
+
+</metal:content>
+
+</body>
+</html>
