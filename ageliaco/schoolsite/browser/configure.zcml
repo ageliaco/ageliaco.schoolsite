@@ -16,13 +16,14 @@
     />
 
   <!-- Call this from the Welmaster Help page -->
+  <!--
   <browser:page 
     for="plone.app.layout.navigation.interfaces.INavigationRoot"
     name="import_doormat_content"
     class=".actions.ImportDoormatContent"
     layer="..interfaces.IAgeliacoSchoolSiteLayer"
     permission="cmf.ManagePortal"
-    />
+    /> -->
 
   <!-- Call this from the Welmaster Help page -->
   <!--

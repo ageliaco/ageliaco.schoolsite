@@ -23,82 +23,32 @@ from ageliaco.schoolsite.config import (
 
 # 1) BrowserView class for importing Footer/Doormat initial content
 
-FOOTER_TEXTS_CONFIG = {
-'schoolsite-col-1': {
-  'title': 'Administration',
-  'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Administration</a></h3>
-<p style="text-align: center; "><span class="discreet">Infos n&eacute;cessaires et/ou utiles</span></p>'''
-},
-'schoolsite-col-2': {
-  'title': '''Vie Ecole''',
-  'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Vie de l'&eacute;cole</a></h3>
-<p style="text-align: center; "><span class="discreet">Ce qui fait - aussi - l'&eacute;cole!</span></p>'''
-},
-'schoolsite-col-3': {
-  'title': 'Pedagogie',
-  'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">P&eacute;dagogie</a></h3>
-<p style="text-align: center; "><span class="discreet">Enseigner et apprendre</span></p>'''
-},
-'schoolsite-col-4': {
-  'title': 'Presentation',
-  'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Pr&eacute;sentation</a></h3>
-<p style="text-align: center; "><span class="discreet">Tout savoir sur le coll&egrave;ge</span></p>'''
-},
-
-}
-
-
-class ImportDoormatContent(BrowserView):
-    """
-    """
-
-    def __call__(self):
-
-        context = self.context
-
-        if 'doormat' in context.objectIds():
-            dm = context['doormat']
-
-            dm.setShowTitle(False)
-
-            for col_id in ['schoolsite-col-1','schoolsite-col-2','schoolsite-col-3','schoolsite-col-4']:
-                oid = dm.invokeFactory('DoormatColumn', col_id)
-                column = dm[oid]
-                column.setTitle('Colonne %s' % col_id)
-                column.setShowTitle(False)
-                column.reindexObject()
-   
-                section_id = col_id + '-section1'
-                oid = column.invokeFactory('DoormatSection', section_id)
-                section = column[oid]
-                section.setTitle('Section %s' % section_id)
-                section.setShowTitle(False)
-                section.reindexObject()
-
-                doc_id = section_id + '-doc1'
-                oid = section.invokeFactory("Document", doc_id)
-                doc = section[oid]
-                doc.title = FOOTER_TEXTS_CONFIG[col_id]['title']
-                doc.text = RichTextValue(FOOTER_TEXTS_CONFIG[col_id]['text'], 'text/html', 'text/html')
-                doc.reindexObject()
-            
-        return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
-
-
-# 2) BrowserView class for importing the /presentation/liens-institutionnels links folder
-
-# def addLinksFolder(id, title, container):
-#     if not id in container.objectIds():
-#         container.invokeFactory(type_name="Folder",
-#                                 id=id,
-#                                 title=title)
+# FOOTER_TEXTS_CONFIG = {
+# 'schoolsite-col-1': {
+#   'title': 'Administration',
+#   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Administration</a></h3>
+# <p style="text-align: center; "><span class="discreet">Infos n&eacute;cessaires et/ou utiles</span></p>'''
+# },
+# 'schoolsite-col-2': {
+#   'title': '''Vie Ecole''',
+#   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Vie de l'&eacute;cole</a></h3>
+# <p style="text-align: center; "><span class="discreet">Ce qui fait - aussi - l'&eacute;cole!</span></p>'''
+# },
+# 'schoolsite-col-3': {
+#   'title': 'Pedagogie',
+#   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">P&eacute;dagogie</a></h3>
+# <p style="text-align: center; "><span class="discreet">Enseigner et apprendre</span></p>'''
+# },
+# 'schoolsite-col-4': {
+#   'title': 'Presentation',
+#   'text':  '''<h3 style="text-align: center; "><a class="internal-link" href="#">Pr&eacute;sentation</a></h3>
+# <p style="text-align: center; "><span class="discreet">Tout savoir sur le coll&egrave;ge</span></p>'''
+# },
 # 
-#     # Set the corresponding layout
-#     links_folder = container[id]
-#     links_folder.setLayout('links')
+# }
+# 
 
-
-# class ImportLiensInstitutionnels(BrowserView):
+# class ImportDoormatContent(BrowserView):
 #     """
 #     """
 # 
@@ -106,18 +56,37 @@ class ImportDoormatContent(BrowserView):
 # 
 #         context = self.context
 # 
-#         # Add liens-institutionnels
-#         if 'presentation' in context.objectIds():
-#             about_folder = context['presentation']
+#         if 'doormat' in context.objectIds():
+#             dm = context['doormat']
+# 
+#             dm.setShowTitle(False)
+# 
+#             for col_id in ['schoolsite-col-1','schoolsite-col-2','schoolsite-col-3','schoolsite-col-4']:
+#                 oid = dm.invokeFactory('DoormatColumn', col_id)
+#                 column = dm[oid]
+#                 column.setTitle('Colonne %s' % col_id)
+#                 column.setShowTitle(False)
+#                 column.reindexObject()
+#    
+#                 section_id = col_id + '-section1'
+#                 oid = column.invokeFactory('DoormatSection', section_id)
+#                 section = column[oid]
+#                 section.setTitle('Section %s' % section_id)
+#                 section.setShowTitle(False)
+#                 section.reindexObject()
+# 
+#                 doc_id = section_id + '-doc1'
+#                 oid = section.invokeFactory("Document", doc_id)
+#                 doc = section[oid]
+#                 doc.title = FOOTER_TEXTS_CONFIG[col_id]['title']
+#                 doc.text = RichTextValue(FOOTER_TEXTS_CONFIG[col_id]['text'], 'text/html', 'text/html')
+#                 doc.reindexObject()
 #             
-#             addLinksFolder('liens-institutionnels', 'Liens institutionnels', about_folder)
-# 
-# 
 #         return context.REQUEST.response.redirect(context.absolute_url() + '/webmaster-help')
-            
 
 
-# 3) BrowserView class for importing Events
+
+# 2) BrowserView class for importing Events
             
 # Functions and constants for the import of events
 
@@ -234,7 +203,7 @@ class ImportEvents(BrowserView):
         return "DONE"
 
 
-# 4) BrowserView class for importing initial users and groups
+# 3) BrowserView class for importing initial users and groups
         
 class QuickAddUsersGroups(BrowserView):
     """

@@ -93,6 +93,7 @@
               
         </tr>
 
+        <!--
         <tr tal:define="actionDone view/isFooterContentsAdded" >
               <td width="30%" >
                             <a href="" 
@@ -123,7 +124,7 @@
                  </div> 
               </td>
               
-        </tr>
+        </tr> -->
 
       </table>
 
@@ -131,39 +132,6 @@
       <h2> Import de contenus </h2>
 
       <table width="100%" class="listing" >
-
-        <!--
-        <tr tal:define="actionDone view/isLiensInstitutionnelsFolderAdded" >
-              <td width="30%" >
-                            <a href="" 
-                               tal:condition="not: actionDone"
-                               tal:attributes="href string:${portal_url}/@@import_liens_institutionnels" > 
-                               <span class="icon-sitemap" ></span>
-                               Liens institutionnels
-                            </a>
-                            <span tal:condition="actionDone" style="color: orange" > 
-                               <span class="icon-sitemap" ></span>
-                               Liens institutionnels
-                            </span>
-              </td>
-
-              <td width="70%" >
-                 Ajout et paramétrage de la page "Liens Institutionnels".
-                 
-                 <div tal:condition="actionDone" >
-                  <span style="color: orange" class="icon-ok-circle" >
-                    L'importation a été effectué.
-                  </span>
-                  <span style="color: #336688" class="icon-link" >
-                            <a href="" 
-                               tal:attributes="href string:${portal_url}/presentation/liens-institutionnels" > 
-                               <em>Voir la page ajoutée.</em>
-                            </a>
-                  </span>
-                 </div> 
-              </td>
-        </tr>
-        -->
         
         <tr tal:define="actionDone python: False" >
               <td width="30%" >

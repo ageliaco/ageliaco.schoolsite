@@ -89,26 +89,14 @@ class WebmasterHelp(BrowserView):
         return DOCUMENTATION_SITE_URL
 
 
-    def isFooterContentsAdded(self):
-
-        context = self.context
-
-        if not 'doormat' in context.objectIds():  
-            return False
-        dm = context.doormat
-        if len(dm.objectIds('DoormatColumn')) < 2:
-            return False
-        return True
-
-
-#     def isLiensInstitutionnelsFolderAdded(self):
+#     def isFooterContentsAdded(self):
 # 
 #         context = self.context
 # 
-#         if not 'presentation' in context.objectIds('Dexterity Container'):  
+#         if not 'doormat' in context.objectIds():  
 #             return False
-#         about_folder = context.presentation
-#         if not 'liens-institutionnels' in about_folder.objectIds('Dexterity Container'):
+#         dm = context.doormat
+#         if len(dm.objectIds('DoormatColumn')) < 2:
 #             return False
 #         return True
             
