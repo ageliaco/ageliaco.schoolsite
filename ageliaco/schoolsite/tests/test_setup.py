@@ -16,7 +16,6 @@ class InstallTestCase(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        #self.skins = self.portal['portal_skins']
 
     def test_installed(self):
         qi = self.portal['portal_quickinstaller']
@@ -24,7 +23,7 @@ class InstallTestCase(unittest.TestCase):
 
     def test_addon_layer(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertIn('ageliaco.schoolsite', layers)
+        self.assertIn('IAgeliacoSchoolSiteLayer', layers)
 
 
 class UninstallTestCase(unittest.TestCase):
@@ -42,5 +41,5 @@ class UninstallTestCase(unittest.TestCase):
 
     def test_addon_layer_removed(self):
         layers = [l.getName() for l in registered_layers()]
-        self.assertNotIn('ageliaco.schoolsite', layers)
+        self.assertNotIn('IAgeliacoSchoolSiteLayer', layers)
 
