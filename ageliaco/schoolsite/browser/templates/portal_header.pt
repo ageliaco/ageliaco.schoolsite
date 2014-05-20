@@ -21,6 +21,7 @@
 		</div>
     </div>
 
+    <tal:block replace="nothing" >
     <div class="noprint" id="eeel-secondline">
 	  <ul>
 	    <li><a title="Messagerie" href="https://mailedu.ge.ch/">Messagerie EDU</a></li>
@@ -29,6 +30,7 @@
 	    <li class="last"><a title="MEMO maison" href="https://ge.ch/edugeco/memo">MEMO maison</a></li>
       </ul>
     </div>
+    </tal:block>
 
   </div>
 
